@@ -1,0 +1,127 @@
+/* RegisterPage.css */
+.register-page-container {
+    background-image: url("../../assets/images/register/wx.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+}
+.register-form {
+    background-color: #ffffff;
+    padding: 4rem;
+    border-radius: 22px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 120%;
+    max-width: 400px;
+    margin-top:200px;
+    margin-bottom: 263px;
+}
+.form-group {
+    margin-bottom: 1rem;
+    padding-right: 20px;
+}
+
+.form-group label {
+
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #000000;
+    text-align: left;
+
+}
+.modalss {
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalss-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 30%;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+    animation-name: animatetop;
+    animation-duration: 0.4s;
+}
+
+@keyframes animatetop {
+    from {top: -300px; opacity: 0}
+    to {top: 0; opacity: 1}
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 4px;
+    border: 3px solid #ccc;
+    font-size: 1rem;
+}
+
+.submit-btn {
+    width: 92%;
+    padding: 1rem;
+    border-radius: 4px;
+    border: none;
+    background-color: #000;
+    color: #fdd500;
+    font-size: 1.25rem;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+
+
+}
+
+.button-baseq {
+    padding: 12px 24px; /* Slightly bigger for better clickability */
+    background-color: #000000; /* A grey that fits the dark theme */
+    color: gold;
+    border: 4px solid #ffffff; /* solid white border */
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adding transform to transition for a subtle effect */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Shadow for 3D effect */
+}
+
+.button-baseq:hover {
+    background-color: gold; /* White on hover */
+    transform: scale(1.05); /* Slight scale to give feedback */
+    color: black;
+    border-radius: 5px;
+    border: 4px solid #ffffff; /* solid white border */
+}
+
+.register-input input[type="text"],
+.register-input input[type="password"],
+.register-input select {
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    display: block;
+    width: 100%;
+}
+
+.register-input .submit-btn:hover {
+    background-color: rgba(0, 0, 0, 0.3);
+}
+@media (max-width: 768px) {
+    .register-form {
+        padding: 1rem;
+    }
+}
+
+.error{
+    color: red;
+    font-size: 15px;
+}

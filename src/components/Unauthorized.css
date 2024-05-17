@@ -1,0 +1,40 @@
+.unauthorized-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Use the full height of the viewport */
+    background-color: #282B24; /* Dark background from the new theme */
+    color: #F1EEDB; /* Light text color for contrast */
+
+}
+
+.unauthorized-container h1 {
+    font-size: 4em; /* Slightly larger for more impact */
+    color: #F1EEDB; /* Keeping it consistent with the theme */
+    text-shadow: 2px 2px 4px #000; /* Adding a subtle shadow for depth */
+}
+
+.unauthorized-container p {
+    font-size: 1.2em;
+    color: #D8D2C4; /* A slightly off-white color for softer text */
+    text-shadow: 1px 1px 3px #000; /* Soft shadow for readability */
+}
+
+.unauthorized-button {
+    padding: 12px 24px; /* Slightly bigger for better clickability */
+    margin-top: 25px; /* More spacing */
+    background-color: #646464; /* A grey that fits the dark theme */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adding transform to transition for a subtle effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Shadow for 3D effect */
+}
+
+.unauthorized-button:hover {
+    background-color: #7d7d7d; /* A lighter grey on hover */
+    transform: scale(1.05); /* Slight scale to give feedback */
+    border-radius: 5px;
+}

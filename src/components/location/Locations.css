@@ -1,0 +1,117 @@
+
+
+
+.nav-link {
+    margin-right: 30px;
+    display: inline-block;
+    background-color: #000000;
+    color: #fdd500;
+    padding: 5px 30px;
+    text-decoration: none;
+    transition: background-color 0.5s, color 0.5s;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: #fdd500;
+    color: #000000;
+    font-weight: bold;
+}
+.main.loading {
+    background-color: gray;
+}
+.nav-link.selected {
+    background-color: #fdd500;
+    color: #000000;
+}
+#location-box {
+    float: left;
+    width: 100%; /* Make the width 100% for small screens */
+    max-width: 30%; /* But don't let it grow beyond 30% on larger screens */
+    padding: 20px;
+    box-sizing: border-box;
+    height: calc(00vh - 00px); /* Adjust height taking header and footer into account */
+
+    margin-top: 150px;
+
+}
+
+@media (max-width: 768px) {
+    #location-box, #map {
+        max-width: 100%;
+        float: none;
+        margin-top: 0; /* Remove margin-top on smaller screens */
+    }
+    /* Adjust the font size for smaller screens */
+    h1, p {
+        font-size: smaller; /* Or use a specific size in ems, pixels, etc. */
+    }
+}
+
+@media (max-width: 768px) {
+    #location-info {
+        padding: 10px; /* Less padding on smaller screens */
+    }
+}
+
+#map {
+    float: right;
+    width: 100%; /* 100% on small screens */
+    max-width: 70%;
+    height: calc(100vh - 200px); /* Adjust height taking header and footer into account */
+    background-color: #eee; /* Default background to indicate the map area */
+    padding-bottom: 100px;
+}
+
+.la {
+    color: #ffd700;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Your Font', sans-serif; /* replace 'Your Font' with the actual font name */
+    display: inline-block;
+    position: relative;
+    top: -10px; /* Adjust if needed to raise 'LA' higher */
+    margin-right: -10px; /* Pulls 'RESERVE' closer to 'LA' */
+    margin-top: 20px;
+}
+
+.reserve {
+    color: #000000;
+    -webkit-text-stroke: 2px #ffd700;
+    text-shadow: 1px 1px 0 #ffd700, -1px -1px 0 #ffd700, 1px -1px 0 #ffd700, -1px 1px 0 #ffd700, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Your Other Font', sans-serif; /* replace 'Your Other Font' with the actual font name */
+    display: inline-block;
+    position: relative;
+    top: 10px; /* Moves 'RESERVE' down relative to 'LA' */
+    left: 20px; /* Moves 'RESERVE' further to the right */
+}
+
+h1, p {
+    margin: 0 0 15px 0; /* space out the elements a bit */
+}
+
+h1 {
+    font-size: 2vw; /* Adjust the size as needed */
+}
+
+/* Media Queries to adjust font sizes on smaller screens */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2.5vw; /* Larger size since the viewport is smaller */
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 4vw; /* Even larger size for very small screens */
+    }
+}
+
+/* Optional: Add a minimum font size to ensure readability */
+h1 {
+    min-font-size: 8px; /* Minimum size to maintain readability */
+}

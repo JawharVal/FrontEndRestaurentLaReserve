@@ -1,0 +1,47 @@
+.add-user-container {
+    max-width: 600px;
+    margin: 10px auto;
+    padding: 10px;
+    box-shadow: 0 0 10px rgb(252, 249, 249);
+    font-family: Arial, sans-serif;
+    color: white;
+}
+
+.user-form {
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: column;
+    color: white;
+
+}
+
+.user-form label {
+    margin-bottom: 5px;
+    font-weight: bold;
+    color: white;
+
+
+}
+
+.user-form input {
+    margin-bottom: 20px;
+    padding: 8px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    color: #000000;
+    background-color: white;
+}
+
+.user-form button {
+    padding: 10px;
+    background-color: #ffb904;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.user-form button:hover {
+    background-color: #0056b3;
+}

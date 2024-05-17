@@ -1,0 +1,82 @@
+/* LoginPage.css */
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 300px;
+    margin: auto;
+    margin-top: 100px;
+    padding: 20px;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    background-color: rgba(255, 255, 255, 0.67);
+    color: #333;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: opacity 0.5s ease-out;
+    font-family: Arial, sans-serif;
+    margin-top: -80px;
+    margin-top:300px;
+    margin-bottom: 277px;
+}
+
+.login-page-container {
+    background-image: url("../../assets/images/login/ba.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-top: 10px;
+}
+
+
+.login-form h1 {
+    font-family: 'Lobster', cursive;
+    color: #000000;
+    text-shadow: 1px 1px 0 gold, -1px -1px 0 gold, 1px -1px 0 gold, -1px 1px 0 gold, 5px 5px 0 gold;
+    margin-bottom: 20px;
+    font-size: 100px;
+}
+
+.login-form label {
+    margin-bottom: 10px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.login-form input {
+    margin-bottom: 20px;
+    padding: 10px;
+    border: 2px solid #000000;
+    border-radius: 4px;
+    background-color: #ffffff;
+    font-weight: bold;
+}
+
+.login-form button {
+    padding: 10px;
+    background-color: #000000;
+    color: #fdd500;
+    border: 1px solid #000000;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.login-form button:hover {
+    background-color: gold;
+    color: #000000;
+}
+
+.login-form .register-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+    color: #000000;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.5s;
+}
+
+.login-form .register-link:hover {
+    color: gold;
+}

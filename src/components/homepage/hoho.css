@@ -1,0 +1,471 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+
+.hoho-body {
+    background-color: gold;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+
+.hoho-carousel {
+    background-color: white; /* Or any color that contrasts with your images */
+}
+
+.hoho-footer {
+    background-color: black;
+    color: gold;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+}
+
+.hoho-nav-link {
+    display: inline-block;
+    background-color: #000000;
+    color: #fdd500;
+    padding: 5px 10px;
+    text-decoration: none;
+    transition: background-color 0.5s, color 0.5s;
+    font-weight: bold;
+}
+.hoho-nav-link:hover {
+    background-color: #fdd500;
+    color: #000000;
+    font-weight: bold;
+}
+
+.hoho-la {
+    color: #ffd700;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Your Font', sans-serif; /* replace 'Your Font' with the actual font name */
+    display: inline-block;
+    position: relative;
+    top: -10px; /* Adjust if needed to raise 'LA' higher */
+    margin-right: -10px; /* Pulls 'RESERVE' closer to 'LA' */
+    margin-top: 20px;
+}
+
+.hoho-reserve {
+    color: #000000;
+    -webkit-text-stroke: 2px #ffd700;
+    text-shadow: 1px 1px 0 #ffd700, -1px -1px 0 #ffd700, 1px -1px 0 #ffd700, -1px 1px 0 #ffd700, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Your Other Font', sans-serif; /* replace 'Your Other Font' with the actual font name */
+    display: inline-block;
+    position: relative;
+    top: 10px; /* Moves 'RESERVE' down relative to 'LA' */
+    left: 20px; /* Moves 'RESERVE' further to the right */
+}
+
+
+.hoho-body {
+
+    transition: opacity 0.5s ease-out;
+    font-family: Arial, sans-serif;
+    background-color: gold; /* Set a neutral background color */
+    color: #333;
+    margin: 0;
+    padding: 0;
+}
+
+.hoho-header {
+    display: flex;
+    justify-content: space-between; /* This will place the title and nav at opposite ends */
+    align-items: center; /* This will vertically center them */
+    background-color: #fdd500;
+    color: #f0f0f0;
+    padding: 3px 0;
+    padding-left: 20px;
+    font-weight: bold;
+    height: 125px;
+    z-index: 1000; /* Ensure the header stays above other elements */
+}
+
+.photo-gallery-section {
+    background-image: url("../../assets/images/homepage/fq.png");
+    padding-top: 800px;
+    padding-bottom: 10px;
+    background-size: cover;
+
+}
+.sd {
+    background-color: black;
+    padding-top: 50px;
+height: 450px;
+    border: 4px solid #000000;
+
+}
+.photo-gallery-section img{
+
+    margin-top: -450px;
+    margin-bottom: 450px;
+
+
+}
+
+.hoho-title h1 {
+    text-align: left;
+}
+
+.hoho-menus h1 {
+    font-size: 40px;
+    margin-bottom: 10px; /* Added to make text closer to "MENUS" */
+    align-items: center;
+}
+
+.hoho-nav {
+    text-align: right;
+}
+
+.button-base2 {
+    padding: 15px 55px;
+    border: 4px solid #000000; /* solid black border */
+    background-color: gold; /* no background color initially */
+    color: #000000; /* black text */
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.5s, color 0.5s; /* smooth transition for hover effects */
+}
+.submit-button5{
+    padding: 15px 55px;
+    color: white;
+    /* solid black border */
+    background-color: #000000; /* no background color initially */
+    border-radius: 1px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-left: 300px;
+    margin-right: 350px;
+    font-size: 15px;
+    transition: background-color 0.5s, color 0.5s; /* smooth transition for hover effects */
+}
+
+.submit-button5:hover{
+    padding: 15px 55px;
+    color: black;
+    /* solid black border */
+    background-color: gold; /* no background color initially */
+    border-radius: 1px;
+    font-weight: bolder;
+    cursor: pointer;
+    margin-left: 300px;
+    margin-right: 350px;
+    font-size: 15px;
+    transition: background-color 0.5s, color 0.5s; /* smooth transition for hover effects */
+}
+
+.hoho-overlay p {
+    font-size: 23px;
+    margin-bottom: 20px;
+}
+
+.hoho-nav a {
+    color: #f0f0f0;
+    margin: 0 10px;
+    text-decoration: none;
+    padding-right: 20px;
+}
+
+.hoho-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%; /* adjust as needed */
+    height: 750px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    color: white;
+    padding: 20px;
+    background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+    word-wrap: break-word; /* This will break the word at the end of the line */
+    white-space: pre-wrap;
+}
+.enlarged-img{
+    padding-top: 650px;
+}
+.hoho-overlay p{
+    padding-right: 544px;
+    padding-left: 544px;
+    top: 0;
+    left: 0;
+    line-height: 2.5;
+
+}
+
+.hoho-overlay h2{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: 'Lobster', sans-serif;/* replace 'Your Font' with the actual font name */
+    color: #ffffff; /* gold text */
+    font-weight: bolder;
+}
+
+.hoho-overlay h7{
+    font-size: 50px;
+    margin-bottom: 20px;
+    font-family: 'Lobster', sans-serif;/* replace 'Your Font' with the actual font name */
+    color: #ffffff; /* gold text */
+    font-weight: bolder;
+}
+/* Base button styling */
+.button-base {
+    padding: 15px 55px;
+    border: 4px solid #000000; /* solid black border */
+    background-color: transparent; /* no background color initially */
+    color: #000000; /* black text */
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.5s, color 0.5s; /* smooth transition for hover effects */
+}
+
+/* Hover effect for all buttons */
+.button-base:hover {
+    background-color: #000000; /* black background on hover */
+    color: #fdd500; /* gold text on hover */
+    border: 3px solid #ffffff; /* gold border */
+}
+
+/* Applying base button class to all buttons in the application */
+.hoho-content-details button,
+.hoho-overlay button,
+.hoho-content-item button {
+    /* Use the button-base class styles */
+ margin-top: 200px; /* Assuming using CSS Modules or similar methodology */
+}
+
+
+.hoho-carousel {
+    position: relative;
+    width: 100%; /* Changed from 300% to 100% */
+    height: 750px;
+    overflow: hidden;
+}
+.hoho-carousel-image {
+    display: block;
+    position: absolute;
+    width: 100%;
+    height: 750px;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.hoho-carousel-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+
+}
+
+
+.hoho-additional-content {
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Align items horizontally in the center */
+
+}
+
+.hoho-content-item img {
+    margin: 120px 70px 0 70px; /* top, right, bottom, left */
+    width: 700px; /* Set the width of the images */
+    height: auto; /* Maintain aspect ratio */
+    border: 4px solid #000000;
+
+}
+
+.hoho-content-item {
+    margin: 0 20px; /* Add margin on left and right sides */
+    text-align: center; /* Align content in the center */
+}
+
+.hoho-content-item h3,
+.hoho-content-item p,
+.hoho-content-item button {
+    margin: 10px 0; /* Add margin to create space between elements */
+}
+
+
+
+.hoho-content-item h3,
+.hoho-content-item p {
+    max-width: 600px; /* Set the max-width to match your image width */
+    margin: 10px auto; /* Center the text */
+    word-wrap: break-word; /* Break the word at the end of the line */
+}
+
+
+.hoho-content-item p{
+    color: #000000; /* gold text */
+    line-height: 2.5;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hoho-content-item button {
+    padding: 15px 55px;
+    border: 4px solid #000000; /* gold border */
+    background-color: transparent; /* no background color */
+    color: #000000; /* gold text */
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.hoho-content-item button:hover {
+    border: 3px solid #ffffff; /* gold border */
+    background-color: #000000; /* gold background on hover */
+    color: #fdd500; /* black text on hover */
+}
+.hoho-carousel-image.active {
+    display: block;
+    opacity: 1;
+    height: 750px; /* Changed from 100% to 300px */
+}
+.hoho-carousel {
+    position: relative; /* Set position to relative for nested positioning */
+}
+.hoho-carousel-points-background {
+    position: absolute; /* Set position to absolute */
+    bottom: -25px;
+    left: 40%; /* Adjust as needed */
+    right: 40%; /* Adjust as needed */
+    height: 60px;
+    margin-top: 20px;
+    background: #fdd500; /* Set the background color */
+    z-index: 1; /* Ensure it's above the carousel images but below the points */
+    border-radius: 25px; /* Add this line to round the corners */
+}
+
+.hoho-carousel-points {
+    position: absolute;
+    bottom: -20px;
+    width: 100%;
+    text-align: center;
+    height: 50px;
+    z-index: 2; /* Ensure it's above the background */
+}
+
+.hoho-carousel-point {
+    display: inline-block;
+    width: 10px;
+    height: 10px;
+    background-color: #2d2d2d;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+    position: relative;
+}
+
+
+.hoho-carousel-point.active {
+    background-color: #ffffff;
+
+}
+
+.hoho-content-container{
+    padding-top: 350px;
+    background-size: contain;
+    background-image: url("../../assets/images/homepage/backkhoho.png");
+}
+
+.hoho-content-wrapper {
+    display: flex; /* Use flexbox */
+    margin-left: 120px;
+}
+
+.hoho-content-wrapper img{
+    display: flex; /* Use flexbox */
+    margin-bottom: 50px;
+    margin-top: 20px;
+    margin-left: 25px;
+    border: 3px solid #ffffff; /* gold border */
+}
+
+
+
+
+
+
+
+
+.hoho-content-details{
+    margin-top: 270px;
+    text-align: center; /* Aligns text in the center */
+    margin-left: 270px;
+
+}
+
+.hoho-content-details h3,
+.hoho-content-details p,
+.hoho-content-details button {
+    margin: 20px auto; /* Add vertical space between elements */
+}
+
+.hoho-content-details h3{
+    font-size: 60px;
+    color: #000000; /* gold text */
+    font-weight: bolder;
+    margin-bottom: 20px;
+
+}
+
+.hoho-content-details button {
+    padding: 15px 55px;
+    border: 4px solid #000000; /* gold border */
+    background-color: transparent; /* no background color */
+    color: #000000; /* gold text */
+    font-weight: bolder;
+    cursor: pointer;
+    font-size: 15px;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+
+.hoho-content-details p {
+    max-width: 600px; /* Set the max-width to match your image width */
+    word-wrap: break-word; /* Break the word at the end of the line */
+    color: #000000; /* gold text */
+    line-height: 2.5;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hoho-content-item p{
+    color: #000000; /* gold text */
+    line-height: 2.5;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.hoho-content-title,
+.hoho-content-text,
+.hoho-content-button {
+    margin: 20px auto; /* Centers the elements */
+
+}
+
+h88 {
+    color: #000000;
+    background-color: transparent;
+    font-weight: bold;
+    font-size: 1060px; /* adjust size as needed */
+    font-family: 'Lobster', sans-serif;/* replace 'Your Font' with the actual font name */
+    margin-bottom: 25px;
+    margin-top: 800px;
+
+
+
+}

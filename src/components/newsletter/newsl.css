@@ -1,0 +1,157 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+
+
+
+body {
+
+
+    font-family: Arial, sans-serif;
+    background-color: gold; /* Set a neutral background color */
+    color: #333;
+    margin: 0;
+    padding: 0;
+
+}
+
+#newsletterForm {
+
+    transition: opacity 0.5s ease-out;
+    margin-bottom: -112px;
+    margin-top: -100px;
+}
+
+header {
+
+    position: fixed;
+    top: 0;
+    width: 100%;
+    transition: height 0.5s ease-out;
+    display: flex;
+    justify-content: space-between; /* This will place the title and nav at opposite ends */
+    align-items: center; /* This will vertically center them */
+    background-color: #000000;
+    color: #f0f0f0;
+    padding: 3px 0;
+    padding-left: 20px;
+    font-weight: bold;
+    height: 100px;
+    border: 2px solid #000000; /* gold border */
+}
+
+.nav-link {
+    margin-right: 30px;
+    display: inline-block;
+    background-color: #000000;
+    color: #fdd500;
+    padding: 5px 25px;
+    text-decoration: none;
+    transition: background-color 0.5s, color 0.5s;
+    font-weight: bold;
+}
+
+.nav-link:hover {
+    background-color: #fdd500;
+    color: #000000;
+    font-weight: bold;
+}
+.main.loading {
+    background-color: gray;
+}
+.nav-link.selected {
+    background-color: #000000;
+    color: #ffffff;
+}
+
+
+
+.la {
+    color: #ffd700;
+    -webkit-text-stroke: 2px black;
+    text-shadow: 3px 3px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Your Font', sans-serif; /* replace 'Your Font' with the actual font name */
+    display: inline-block;
+    position: relative;
+    top: -10px; /* Adjust if needed to raise 'LA' higher */
+    margin-right: -10px; /* Pulls 'RESERVE' closer to 'LA' */
+    margin-top: 20px;
+}
+
+.reserve {
+    color: #000000;
+    -webkit-text-stroke: 2px #ffd700;
+    text-shadow: 1px 1px 0 #ffd700, -1px -1px 0 #ffd700, 1px -1px 0 #ffd700, -1px 1px 0 #ffd700, 1px 1px 0 #000;
+    font-weight: bold;
+    font-size: 50px;
+    font-family: 'Your Other Font', sans-serif; /* replace 'Your Other Font' with the actual font name */
+    display: inline-block;
+    position: relative;
+    top: 10px; /* Moves 'RESERVE' down relative to 'LA' */
+    left: 20px; /* Moves 'RESERVE' further to the right */
+}
+
+form  {
+    display: flex;
+    flex-direction: column;
+    width: 500px;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 150px;
+    font-size: 25px;
+}
+
+input[type="email"],input[type="fname"],input[type="lname"] {
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #000000;
+    margin: 10px 0; /* Add margin to create space between elements */
+    background-color: transparent;
+    font-weight: bolder;
+    align-content: flex-start;
+;
+}
+input[type="text"] {
+    margin-bottom: 10px;
+    padding: 20px;
+    border: 1px solid #000000;
+    margin: 10px 0; /* Add margin to create space between elements */
+    background-color: transparent;
+    font-weight: bolder;
+    text-align: left;
+;
+}
+
+input[type="submit"] {
+    width: 80px;
+    margin-left: 200px;
+    padding: 10px;
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+    margin-bottom: 52px;
+    cursor: pointer;
+    font-weight: bolder;
+
+}
+
+
+
+.button-base {
+    padding: 12px 24px; /* Slightly bigger for better clickability */
+    background-color: #646464; /* A grey that fits the dark theme */
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease; /* Adding transform to transition for a subtle effect */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.3); /* Shadow for 3D effect */
+}
+
+.button-base:hover {
+    background-color: #7d7d7d; /* A lighter grey on hover */
+    transform: scale(1.05); /* Slight scale to give feedback */
+    border-radius: 5px;
+}
+
+

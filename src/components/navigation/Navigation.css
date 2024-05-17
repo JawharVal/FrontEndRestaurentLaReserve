@@ -1,0 +1,82 @@
+/* Navigation.css */
+button {
+    background-color: gold;
+    padding: 10px 20px;
+    cursor: pointer;
+    color: #000000;
+
+    transition: background-color 0.5s, color 0.5s;
+    border: 3px solid #ff0000;
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: gold;
+}
+
+nav a.active {
+    color: white;
+    font-weight: bold;
+}
+
+.uk-navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 120px; /* Fixed height */
+}
+
+.uk-navbar-left, .uk-navbar-right {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.uk-navbar-center {
+    flex: 0 1 auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uk-navbar-container {
+    position: relative;
+    transition: height 0.3s ease; /* Smooth transition for header resizing */
+}
+
+.uk-logo {
+    position: relative;
+    flex-grow: 0;
+    flex-shrink: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.uk-logo img {
+    top: 300%; /* Center vertically */
+    left: 80%; /* Center horizontally */
+     /* Center perfectly in the div */
+    height: auto;
+    width: 100px; /* Adjust based on the actual logo size */
+    transition: transform 0.3s ease; /* Smooth transition for resizing */
+    margin-top: 35px;
+    margin-left:280px;
+    margin-right: 640px;
+    padding-bottom: -50px;
+    padding-left: -1050px;
+}
+
+.uk-logo.logged-in img {
+    top: 300%; /* Center vertically */
+    left: 80%; /* Center horizontally */
+    /* Center perfectly in the div */
+    height: auto;
+    width: 100px; /* Adjust based on the actual logo size */
+    transition: transform 0.3s ease; /* Smooth transition for resizing */
+    margin-top: 50px;
+    margin-left:20px;
+    margin-right: 750px;
+    padding-bottom: -50px;
+}

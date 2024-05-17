@@ -1,0 +1,193 @@
+/* ProfilePage.css */
+
+
+.profile-containers {
+    padding-top: 20px;
+background-size: cover;
+    background-image: url("../../assets/images/profile/profb.png");
+
+}
+
+.profile-details {
+
+    margin-bottom: 190px;
+    background: rgba(255, 229, 1, 0.73);
+    border-radius: 98px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.59);
+    padding: 30px;
+    margin: 30px 870px;
+    width: 100%;
+    max-width: 500px; /* Max width for the profile details */
+    text-align: center;
+    border: 3px solid #000000;
+}
+
+.profile-details h1 {
+    color: #ffffff;
+    margin-bottom: 10px;
+    font-size: 40px;
+
+}
+.profile-details h7 {
+    margin-bottom: 520px;
+    font-size: 40px;
+
+}
+.profile-details h2 {
+    color: #333;
+    margin-bottom: 20px;
+    margin-left: 115px;
+}
+
+.profile-details p {
+    color: #555;
+    line-height: 1.6;
+    text-align: center;
+    margin-left: 150px;
+    text-align: left;
+
+}
+/* Delete button styling */
+.delete-btn {
+    background-color: rgba(250, 0, 0, 0.52);
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition for smooth color change */
+}
+
+/* Change background color on hover */
+.delete-btn:hover {
+    background-color: rgb(255, 0, 0); /* Red background */
+    color: #ffffff; /* Keep text color white */
+    transition: background-color 0.3s ease; /* Ensure transition for smooth color change */
+}
+
+.logout-btn {
+    background-color: rgba(255, 0, 0, 0.68);
+    color: #ffffff;
+
+
+    transition: background-color 0.3s ease; /* Transition for smooth color change */
+}
+
+/* Change background color on hover */
+.logout-btn:hover {
+    background-color: rgb(124, 10, 10); /* Red background */
+    color: #ffffff; /* Keep text color white */
+    transition: background-color 0.3s ease; /* Ensure transition for smooth color change */
+}
+
+.edit-btn {
+    background-color: gold;
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Transition for smooth color change */
+}
+
+/* Change background color on hover */
+.edit-btn:hover {
+    background-color: darkgoldenrod; /* Red background */
+    color: #ffffff; /* Keep text color white */
+    transition: background-color 0.3s ease; /* Ensure transition for smooth color change */
+}
+
+
+.profile-details button {
+
+    color: #ffffff;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+
+
+.profile-details ul {
+    list-style: none;
+    padding: 0;
+}
+
+.profile-details li {
+
+    background: #f7f7f7;
+    margin-bottom: 10px;
+    padding: 15px;
+    border-radius: 50px;
+}
+
+/* ... existing styles ... */
+
+/* You may need to increase the specificity even further
+.react-calendar__tile--active.highlight,
+.react-calendar__tile.highlight {
+    background-color: red !important; /* Override the default styling
+    color: white !important;
+    border-radius: 30% !important;
+
+}
+/*
+ Only style the text, not the entire tile
+.highlight > abbr {
+    border-radius: 30%;
+    width: 1.2em;
+    height: 1.2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+/* Fix any issues with overflowing content
+.react-calendar__tile > abbr {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* Adjust the overall size of the calendar
+.calendar-section .react-calendar {
+    font-family: Arial, sans-serif;
+     /* Set the width you desire
+    max-width: 100%; /* Ensure it doesn't overflow its container
+    transform: scale(0.6);  Scale down the calendar
+    transform-origin: top left;  Adjust the origin of the transform if needed
+    padding-bottom: -555px;
+}
+
+
+/* Ensure the content scales down with the calendar
+.react-calendar__tile {
+    max-width: none;
+    height: auto;
+    flex-grow: 1;
+}
+.react-calendar__navigation{
+    margin-left: 20px;
+}
+.profile-details {
+    /* Update the width as it is now part of a flex container
+    width: calc(60% - 60px); /* 60% width minus margins
+    margin: 30px; /* Add margin around the profile details
+    margin-left: 460px;
+}
+
+.calendar-section {
+    width: calc(50% - 60px); /* 40% width minus margins
+    margin: 30px; /* Add margin around the calendar
+    padding: 20px; /* Optional: Add padding if needed
+    padding-bottom: -620px;
+
+    border-radius: 20px; /* Optional: Round corners
+
+}
+
+*/

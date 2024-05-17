@@ -1,0 +1,4 @@
+body {
+    transform-origin: top left;
+    transform: scale(1.49); /* This is approximately equal to 1/0.67 */
+}
