@@ -151,7 +151,7 @@ const Locations = () => {
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
                             color: '#555',
                             marginBottom: '30px' // more space before the image
-                        }}>Понедельник-Пятница, 10am-5pm</p>
+                        }}>Понедельник-Воскресенье, 9am-7pm</p>
                         <h1 style={{
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
                             fontWeight: 'bold',
@@ -208,7 +208,7 @@ const Locations = () => {
                 </div>
             </footer>
         </div>
-);
+    );
 };
 
 export default Locations;

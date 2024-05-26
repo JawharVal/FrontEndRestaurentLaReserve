@@ -75,10 +75,10 @@ function Unauthorized() {
                 backgroundSize: '400px',
                 marginTop: '80px'
             }}>
-            <h1>Access Denied</h1>
-                <p>You do not have permission to view this page.</p>
+            <h1>Доступ запрещен</h1>
+                <p>У вас нет разрешения на просмотр этой страницы.</p>
                 <button className="unauthorized-button" onClick={() => navigate('/')}>
-                    Go to Home
+                    На главную страницу
                 </button>
             </div>
 

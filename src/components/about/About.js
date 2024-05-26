@@ -71,12 +71,16 @@ const About = () => {
                     marginLeft: '30px'
                 }}>
                     <h1>ВКУСЫ МИРА ПОД ОДНОЙ КРЫШЕЙ.</h1>
-                    <p style={{ color:'black', marginLeft:'-120px',marginTop:'20px', marginRight:'-100px',textAlign: 'justify' ,fontSize: '25px', lineHeight: '2', fontFamily: 'Vensim Serif' }}>
+                    <p style={{ color: 'black', marginLeft: '-120px', marginTop: '20px', marginRight: '-100px', textAlign: 'justify', fontSize: '25px', lineHeight: '2', fontFamily: 'Vensim Serif' }}>
                         Добро пожаловать в La Reserve – место, где вкусы мира и элегантность встречаются в одном изысканном пространстве.
                         Наш ресторан предлагает уникальное кулинарное путешествие, вдохновленное традициями различных кухонь и современными гастрономическими тенденциями.
                         Мы гордимся использованием только лучших ингредиентов и предоставлением высочайшего уровня сервиса.
+                    </p>
+                    <p style={{ color: 'black', marginLeft: '-120px', marginTop: '20px', marginRight: '-100px', textAlign: 'justify', fontSize: '25px', lineHeight: '2', fontFamily: 'Vensim Serif' }}>
+                        Особенности нашего сервиса: в La Reserve вы платите только за еду — бронирование столов осуществляется абсолютно бесплатно. Эта услуга позволяет вам спланировать свой визит заранее, выбрав удобное для вас время без дополнительных расходов.
                         Откройте для себя неповторимую атмосферу La Reserve и позвольте нам создать для вас незабываемый вечер.
-                    </p> </div>
+                    </p>
+                </div>
             </div>
 
             <footer className="hoho-footer" style={{ backgroundColor: 'black', color: 'gold', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px' }}>

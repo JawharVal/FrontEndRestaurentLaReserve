@@ -39,11 +39,10 @@ import EditLocation from './components/admin/Editing/EditLocation';
 import EditCity from './components/admin/Editing/EditCity';
 import AddCountry from './components/admin/Adding/AddCountry';
 import EditCountry from './components/admin/Editing/EditCountry';
-import useZoomLevel from './useZoomLevel';
+
 function App() {
     useScrollToTop();
-    const { zoomLevel, isLaptop } = useZoomLevel();
-    const [isLoading, setIsLoading] = useState(true);
+       const [isLoading, setIsLoading] = useState(true);
     const [contentVisible, setContentVisible] = useState(false);
     const [showLoginModal, setShowLoginModal] = useState(false);
     const auth = useAuth();
@@ -58,13 +57,6 @@ function App() {
     };
 
     useEffect(() => {
-        if (!localStorage.getItem('alertDisplayed')) {
-            window.alert('Уважаемые пользователи: для более удобного просмотра, откройте полное окно и отрегулируйте уровень масштабирования. Этот сайт лучше всего просматривается при Уровень масштабирования 67% (1920 x 1080 разрешение монитора). Благодарим вас за понимание и что выбрали нас.');
-            localStorage.setItem('alertDisplayed', 'true');
-        }
-    }, []);
-
-    useEffect(() => {
         setIsLoading(true);
         setContentVisible(false);
 
@@ -74,16 +66,7 @@ function App() {
         }, 700);
         return () => clearTimeout(timer);
     }, []);
-    // Show alert on zoom level only once per browser session
-    useEffect(() => {
-        if (isLaptop && Math.abs(zoomLevel - 149.25) > 5) {
-            const zoomAlertShown = sessionStorage.getItem('zoomAlertShown');
-            if (!zoomAlertShown) {
-                alert('Уважаемые пользователи: для более удобного просмотра, откройте полное окно и отрегулируйте уровень масштабирования. Этот сайт лучше всего просматривается при 67% (1920 x 1080 разрешение монитора). Спасибо, что выбрали нас.');
-                sessionStorage.setItem('zoomAlertShown', 'true');
-            }
-        }
-    }, [zoomLevel, isLaptop]);
+
 
     const handleBookingClick = () => {
         // Ensure user is directed to the booking page or handled properly

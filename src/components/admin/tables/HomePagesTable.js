@@ -1,39 +1,13 @@
-import React, { useState, useEffect } from 'react';
+import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import './AdminPanel.css';
-import adming from '../../assets/images/admins/admin.jpg';
+import '../AdminPanel.css';
+import adming from '../../../assets/images/admins/admin.jpg';
 import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-svg-icons';
 import { NavLink, Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import StarRatingComponent from 'react-star-rating-component';
-import UsersTable from './tables/UsersTable';
-import SubscribersTable from './tables/SubscribersTable';
-import RestaurantsTable from './tables/RestaurantsTable';
-import ReviewsTable from './tables/ReviewsTable';
-import CategoriesTable from './tables/CategoriesTable';
-import MenuItemsTable from './tables/MenuItemsTable';
-import LocationsTable from './tables/LocationsTable';
-import CitiesTable from './tables/CitiesTable';
-import CountriesTable from './tables/CountriesTable';
-import HomePagesTable from './tables/HomePagesTable';
-function SocialIcons() {
-    return (
-        <div>
-            <a href="#" style={{ color: 'gold', marginRight: '20px' }}>
-                <FontAwesomeIcon icon={faFacebookSquare} style={{ fontSize: '33px' }} />
-            </a>
-            <a href="#" style={{ color: 'gold', marginRight: '20px' }}>
-                <FontAwesomeIcon icon={faInstagram} style={{ fontSize: '33px' }} />
-            </a>
-            <a href="#" style={{ color: 'gold' }}>
-                <FontAwesomeIcon icon={faVk} style={{ fontSize: '33px' }} />
-            </a>
-        </div>
-    );
-}
-
-function AdminPanel() {
+function HomePagesTable() {
     const [users, setUsers] = useState([]);
     const navigate = useNavigate();
     const [subscribers, setSubscribers] = useState([]);
@@ -41,9 +15,9 @@ function AdminPanel() {
     const [reviews, setReviews] = useState([]);
     const [categories, setCategories] = useState([]);
     const [menuItems, setMenuItems] = useState([]);
-    const [currentView, setCurrentView] = useState(() => localStorage.getItem('currentView') || null);
+    const [currentView, setCurrentView] = useState('users'); // This state controls which data section is shown
     const [data, setData] = useState({ users: [], subscribers: [], restaurants: [], reviews: [], categories: [], menuItems: [], locations: [], cities: [], countries: [], homePages: [] });
-    const [hoverView, setHoverView] = useState(null);
+    const [homePages, setHomePages] = useState([]);
     const [locations, setLocations] = useState([]);
     const [cities, setCities] = useState([]);
     const [countries, setCountries] = useState([]);
@@ -61,12 +35,6 @@ function AdminPanel() {
         fetchHomePages();
         fetchSubscribers();
     }, []);
-
-    const updateCurrentView = (viewName) => {
-        setCurrentView(viewName);
-        localStorage.setItem('currentView', viewName);
-    };
-
     const fetchReviews = () => {
         axios.get('/reviews/all')
             .then(response => {
@@ -99,7 +67,7 @@ function AdminPanel() {
                 });
         }
     };
-    const [homePages, setHomePages] = useState([]);
+
     const fetchHomePages = () => {
         setLoading(true);
         axios.get('/api/homePages')
@@ -373,7 +341,7 @@ function AdminPanel() {
     const navigateToEditHomePage = (homePageId) => {
         navigate(`/edit-home-page/${homePageId}`);
     };
-    
+
     const approveReview = (reviewId) => {
         axios.put(`/reviews/${reviewId}/approve`)
             .then(response => {
@@ -402,142 +370,39 @@ function AdminPanel() {
             })
             .catch(error => console.error('Failed to fetch approved reviews:', error));
     };
-    useEffect(() => {
-        fetchData();
-    }, []);
-
-    async function fetchData() {
-        try {
-            const responses = await Promise.all([
-                axios.get('/admin/users'),
-                axios.get('/subscribe'),
-                axios.get('/restaurants'),
-                axios.get('/reviews/all'),
-                axios.get('/admin/categories'),
-                axios.get('/admin/menuItems'),
-                axios.get('/api/locations'),
-                axios.get('/api/cities'),
-                axios.get('/api/countries'),
-                axios.get('/api/homePages')
-            ]);
-            setData({
-                users: responses[0].data,
-                subscribers: responses[1].data,
-                restaurants: responses[2].data,
-                reviews: responses[3].data,
-                categories: responses[4].data,
-                menuItems: responses[5].data,
-                locations: responses[6].data,
-                cities: responses[7].data,
-                countries: responses[8].data,
-                homePages: responses[9].data
-            });
-        } catch (error) {
-            console.error('Failed to fetch data:', error);
-        }
-    }
-    const getButtonStyle = (viewName) => {
-        let backgroundColor = currentView === viewName ? 'gold' : '#f4f4f4'; // Active or inactive background
-        if (hoverView === viewName) {
-            backgroundColor = 'gold'; // Darker green on hover
-        }
-
-        return {
-            backgroundColor,
-            color: currentView === viewName ? 'white' : 'black', // White text for active, black for inactive
-            padding: '10px',
-            margin: '38px',
-            border: 'none',
-            fontSize:'23px',
-            borderRadius: '5px',
-            cursor: 'pointer',
-            transition: 'background-color 0.3s ease' // Smooth transition for background color
-        };
-    };
-    const renderView = () => {
-        switch (currentView) {
-            case 'users':
-                return <UsersTable />;
-            case 'subscribers':
-                return <SubscribersTable />;
-            case 'restaurants':
-                return <RestaurantsTable />;
-            case 'reviews':
-                return <ReviewsTable />;
-            case 'categories':
-                return <CategoriesTable />;
-            case 'menuItems':
-                return <MenuItemsTable />;
-            case 'locations':
-                return <LocationsTable />;
-            case 'cities':
-                return <CitiesTable />;
-            case 'countries':
-                return <CountriesTable />;
-            case 'homePages':
-                return <HomePagesTable />;
-            default:
-                return (
-                    <div>
-                        <h3 style={{ color: 'gold', marginLeft: '800px', paddingTop: '-51px' }}>Панель администратора</h3>
-                        <div style={{
-                            color: 'white',
-                            marginBottom: '700px',
-                            fontSize: '24px', // Larger font size
-                            fontFamily: 'Arial, sans-serif', // Clean, widely supported font
-                            textAlign: 'center', // Center the text for better aesthetics
-                            fontWeight: 'bold', // Makes the text bold
-                            textShadow: '2px 2px 4px rgba(0,0,0,0.5)', // Subtle text shadow for better readability on varying backgrounds
-                            padding: '20px', // Add some padding around the text
-                            borderRadius: '10px', // Optional: rounded corners for the container
-                            backgroundColor: 'rgba(0,0,0,0.2)', // Semi-transparent dark background for contrast
-                            maxWidth: '80%', // Limit the maximum width of the text block
-                            marginLeft: 'auto', // These two lines center the block horizontally
-                            marginRight: 'auto',
-                            marginTop: '50px' // Adds margin on the top for spacing
-                        }}>Добро пожаловать в панель администратора. Выберите категорию, чтобы начать.</div>
-                    </div>
-                );
-        }
-    };
-
     return (
-        <div style={{ backgroundImage: `url(${adming})` }}>
-            <div className="admin-panel" style={{ paddingTop: '50px' }}>
-                <div className="sidebar">
-                    {['users', 'categories','menuItems','reviews', 'subscribers', 'homePages', 'restaurants',   'locations', 'cities', 'countries'].map(viewName => (
-                        <button
-                            key={viewName}
-                            style={getButtonStyle(viewName)}
-                            onClick={() => setCurrentView(viewName)}
-                            onMouseEnter={() => setHoverView(viewName)}
-                            onMouseLeave={() => setHoverView(null)}
-                        >
-                            {viewName.charAt(0).toUpperCase() + viewName.slice(1)} {/* Capitalize the first letter */}
-                        </button>
-                    ))}
-                </div>
-                <div className="content">
-                    {renderView()}
-                </div>
+        <div className="admin-panel"style={{ paddingTop: '50px',paddingBottom: '250px'}}>
+            <h3 style={{ color: 'gold', marginLeft:'800px' ,paddingTop:'-51px'}}>Панель администратора</h3>
+
+            <h3 style={{color: 'gold' }} >Карусель Фото</h3>
+            <table className="users-table">
+            <thead>
+            <tr>
+                <th>Идентификатор</th>
+                <th>Название</th>
+                <th>Изображения</th>
+                <th>Действия</th>
+            </tr>
+            </thead>
+            <tbody>
+            {homePages.map(homePage => (
+                <tr key={homePage.id}>
+                    <td>{homePage.id}</td>
+                    <td>{homePage.title}</td>
+                    <td>
+                        {homePage.imageUrls.map((url, index) => (
+                            <img key={index} src={url} alt={`Home page ${homePage.id} - image ${index}`} style={{ width: "100px", height: "auto" }} />
+                        ))}
+                    </td>
+                    <td>
+                        <button onClick={() => navigateToEditHomePage(homePage.id)} className="button-edit" style={styles.buttone}>РЕДАКТИРОВАТЬ</button>
+                    </td>
+                </tr>
+            ))}
+            </tbody>
+        </table>
             </div>
-            <footer className="footer" style={{ backgroundColor: 'black', color: 'gold', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginTop: '250px', height: '80px' }}>
-                <SocialIcons />
-                <div style={{ textAlign: 'center' }}>
-                    <a style={{ color: 'gold', textDecoration: 'none', fontWeight: 'bold' }}>© 2024 LA RESERVE. Все права защищены.</a>
-                </div>
-                <div>
-                    <ul style={{ listStyleType: 'none', marginRight: '20px', display: 'flex', gap: '40px' }}>
-                        <li><NavLink to="/contact" style={{ color: 'gold', textDecoration: 'none', fontWeight: 'bolder', transition: 'color 0.3s ease' }}>КОНТАКТ</NavLink></li>
-                        <li><NavLink to="/about" style={{ color: 'gold', textDecoration: 'none', fontWeight: 'bolder', transition: 'color 0.3s ease' }}>О НАС</NavLink></li>
-                        <li><NavLink to="/subscribe" style={{ color: 'gold', textDecoration: 'none', fontWeight: 'bolder', transition: 'color 0.3s ease' }}>НОВОСТНАЯ РАССЫЛКА</NavLink></li>
-                    </ul>
-                </div>
-            </footer>
-        </div>
     );
 }
 
-// Define each table component similarly to how UsersTable is defined, but tailored to the data and operations of each type.
-
-export default AdminPanel;
+export default HomePagesTable;

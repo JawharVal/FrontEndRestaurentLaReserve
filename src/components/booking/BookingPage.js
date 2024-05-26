@@ -63,7 +63,7 @@ function BookingPage() {
         restaurantId: '' // Added to manage the restaurant ID
     });
     const [categories, setCategories] = useState([]);
-
+    const [showTermsError, setShowTermsError] = useState(false);
     const [hover, setHover] = useState(false);
     const [loading, setLoading] = useState(false); // Add loading state
     const [availability, setAvailability] = useState({});
@@ -74,6 +74,8 @@ function BookingPage() {
     const [countdown, setCountdown] = useState(3);
     const navigate = useNavigate(); // use useNavigate here
     const [timeoutId, setTimeoutId] = useState(null);
+    const [termsModalVisible, setTermsModalVisible] = useState(false);
+    const [agreedToTerms, setAgreedToTerms] = useState(false);
     const [restaurants, setRestaurants] = useState([]);
     useEffect(() => {
         const fetchCategories = async () => {
@@ -282,6 +284,10 @@ paddingTop:'50px',
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+        if (!agreedToTerms) {  // Check if the terms are agreed to
+            setShowTermsError(true);
+            return; // Prevent the form from submitting
+        }
         if (isSubmitting) {
             alert("Please wait, your booking is being processed.");
             return;
@@ -501,15 +507,90 @@ paddingTop:'50px',
                             </select>
 
                         </div>
-
+                        <div>
+                            <input
+                                id="termsCheckbox"
+                                type="checkbox"
+                                checked={agreedToTerms}
+                                onChange={(e) => setAgreedToTerms(e.target.checked)}
+                                style={{ marginRight: '10px' }}
+                            />
+                            <label htmlFor="termsCheckbox">
+                                Я принимаю <span onClick={() => setTermsModalVisible(true)} style={{fontSize:'20px', color: 'blue', cursor: 'pointer', textDecoration: 'underline' }}>условия пользовательского соглашения</span>
+                            </label>
+                        </div>
                         <button
                             style={styles.button}
                             onMouseEnter={() => setHover(true)}
                             onMouseLeave={() => setHover(false)}
+                            onClick={() => {
+                                if (!agreedToTerms) {
+                                    setShowTermsError(true);
+                                    setTimeout(() => setShowTermsError(false), 5000); // Optional: Auto-hide error after 5 seconds
+                                }
+                            }}
                             disabled={isSubmitting}
                         >
                             {isSubmitting ? 'Обработка...' : 'Бронировать'}
                         </button>
+                        {showTermsError && !agreedToTerms && (
+                            <p style={{ color: 'red' }}>Чтобы продолжить, вы должны согласиться с Условиями использования.</p>
+                        )}
+                        {termsModalVisible && (
+                            <>
+                                <div style={{
+                                    position: 'fixed',
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    bottom: 0,
+                                    backgroundColor: 'rgba(0,0,0,0.5)',
+                                    zIndex: 999
+                                }} onClick={() => setTermsModalVisible(false)} />
+
+                                <div style={{
+                                    position: 'fixed',
+                                    top: '50%',
+                                    left: '50%',
+                                    transform: 'translate(-50%, -50%)',
+                                    backgroundColor: 'white',
+                                    padding: '20px',
+                                    zIndex: 1000,
+                                    borderRadius: '8px',
+                                    boxShadow: '0 4px 8px rgba(0,0,0,0.5)',
+                                    width: '80%',
+                                    maxHeight: '90%',
+                                    overflowY: 'auto'
+                                }}>
+                                    <h2 style={{
+                                        marginLeft:'650px'}}>Принятие Условий использования</h2>
+                                    <p>
+                                        Продолжая бронирование, вы соглашаетесь со следующими условиями использования:<br/><br/>
+                                        <strong>Политика бронирования:</strong> Вы можете забронировать один или несколько столов в зависимости от наличия. Каждое бронирование сохраняется максимум на 30 минут после запланированного времени, после чего стол может быть предоставлен посетителям без бронирования, если вы не прибыли.<br/><br/>
+                                        <strong>Политика отмены бронирования:</strong> Хотя за отмену бронирования плата не взимается, мы просим вас отменить ваше бронирование как минимум за 3 часов до изменения ваших планов. Это вежливость помогает нам управлять нашими местами и эффективно обслуживать других гостей.<br/><br/>
+                                        <strong>Политика неприхода:</strong> Повторное неявление на бронирование без предварительной отмены может привести к ограничениям в вашей способности делать будущие бронирования.<br/><br/>
+                                        <strong>Использование данных и конфиденциальность:</strong> Ваши личные данные, собранные в процессе бронирования, будут использоваться исключительно для управления вашим бронированием и улучшения нашего сервиса. Мы уважаем вашу конфиденциальность и обязуемся защищать ваши личные данные в соответствии с нашей политикой конфиденциальности.<br/><br/>
+                                        <strong>Ответственность:</strong> Ресторан не несет ответственности за личные вещи, потерянные или украденные на территории заведения.<br/><br/>
+                                        <strong>Изменение условий:</strong> Ресторан оставляет за собой право изменять данные условия и положения без предварительного уведомления. Актуальные условия всегда доступны на нашем веб-сайте.
+                                    </p>
+                                    <button onClick={() => setTermsModalVisible(false)} style={{ marginTop: '20px' }}>
+                                        Закрыть
+                                    </button>
+                                </div>
+                            </>
+                        )}
+
+                        {termsModalVisible && (
+                            <div style={{
+                                position: 'fixed',
+                                top: 0,
+                                left: 0,
+                                right: 0,
+                                bottom: 0,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                zIndex: 999
+                            }} onClick={() => setTermsModalVisible(false)} />
+                        )}
                     </form>
                 </div>
 

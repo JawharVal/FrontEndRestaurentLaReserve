@@ -202,10 +202,10 @@ const NewsletterForm = () => {
 
                 <img src={chef} alt="Decorative" style={{
                     position: 'absolute',
-                    right: '62%', // Adjust the position as necessary
-                    top: '4.5%', // Adjust so it overlaps both sections correctly
-                    height: '79.5%', // Adjust size as necessary
-                    width: '500px',
+                    right: '60%', // Adjust the position as necessary
+                    top: '2.2%', // Adjust so it overlaps both sections correctly
+                    height: '86.5%', // Adjust size as necessary
+                    width: '850px',
                     border: '6px solid white',
                 }} />
             </div>

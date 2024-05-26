@@ -147,6 +147,13 @@ function LoginPage() {
 
                 <button type="submit" >ЛОГИН</button>
                 <NavLink to="/register" className="register-link">Нет аккаунта? Зарегистрируйтесь.</NavLink>
+                <NavLink to="/contact" style={{ textDecoration: 'none',textShadow: `
+          1px 1px 0 gold,  
+          1px 1px 0 gold,
+          1px 1px 0 gold,
+          1px 1px 0 gold`,marginTop:'20px', fontWeight: 'bolder',fontSize:'15px', transition: 'color 0.3s ease' }}
+                         onMouseOver={(e) => e.currentTarget.style.color='gray'}
+                         onMouseOut={(e) => e.currentTarget.style.color='black'}>Проблемы со входом в систему? Связаться с нами.</NavLink>
             </form>
             {/* Footer */}
             <footer className="hoho-footer" style={{ backgroundColor: 'black', color: 'gold', padding: '10px', display: 'flex', justifyContent: 'space-between', alignItems: 'center', height: '80px',marginTop:'212px' }}>
