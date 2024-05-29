@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { FaTimes, FaArrowLeft, FaArrowRight } from 'react-icons/fa';
-import './PhotoGallery.css';  // Make sure to create a corresponding CSS file
+import './PhotoGallery.css';
 
 const PhotoGallery = ({ photos }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -12,8 +12,8 @@ const PhotoGallery = ({ photos }) => {
     };
 
     const closeModal = (e) => {
-        e.preventDefault();  // Prevent any default action
-        e.stopPropagation();  // Stop the event from bubbling up
+        e.preventDefault();
+        e.stopPropagation();
         setIsOpen(false);
     };
 

@@ -5,14 +5,14 @@ import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-sv
 import { NavLink ,useNavigate} from "react-router-dom";
 import {useAuth } from '../../AuthContext';
 
-import Modal from '../../components/modal/Modal.js'; // Adjust the path according to your file structure
+import Modal from '../../components/modal/Modal.js';
 import Modalqs from '../../components/modal/Modalqs';
-import PhotoGallery from '../../components/photogallery/PhotoGallery'; // Adjust the path as necessary
+import PhotoGallery from '../../components/photogallery/PhotoGallery';
 import azeImage from '../../assets/images/homepage/aze.jpg';
 import pizaImage from '../../assets/images/homepage/piza.jpg';
 import a1 from '../../assets/images/homepage/1.jpg';
 import a2 from '../../assets/images/homepage/2.jpg';
-import StarRatingComponent from 'react-star-rating-component'; // Make sure this is correctly imported
+import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
 import a3 from '../../assets/images/homepage/3.jpg';
 import a4 from '../../assets/images/homepage/4.jpg';
@@ -42,7 +42,7 @@ function App() {
     const [homePages, setHomePages] = useState([]);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [autoSlide, setAutoSlide] = useState(null);
-    const [imagesLoaded, setImagesLoaded] = useState(false); // State to track if images are loaded
+    const [imagesLoaded, setImagesLoaded] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const navigate = useNavigate();
     const [approvedReviews, setApprovedReviews] = useState([]);
@@ -52,12 +52,12 @@ function App() {
             axios.put(`/reviews/${reviewId}/approve`)
                 .then(response => {
                     const approvedReview = response.data;
-                    console.log('Approved review data:', approvedReview); // This will help verify the data structure
+                    console.log('Approved review data:', approvedReview);
                     if (approvedReview && approvedReview.approved) {
                         const newApprovedReviews = [...approvedReviews, approvedReview];
                         setApprovedReviews(newApprovedReviews);
                         alert('Review approved successfully');
-                        // Optionally, filter out the review from the main list if it should no longer show there
+
                         const newReviews = reviews.filter(r => r.id !== reviewId);
                         setReviews(newReviews);
                     } else {

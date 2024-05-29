@@ -29,16 +29,14 @@ function LoginPage() {
         document.body.style.backgroundColor = 'white';
 
         return () => {
-            document.body.style.backgroundColor = ''; // Reset the background when the component unmounts
+            document.body.style.backgroundColor = '';
         };
     }, []);
     useEffect(() => {
-        // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
-        // Header resize on scroll
         const handleScroll = () => {
             const header = document.querySelector('header');
             if (header) {
@@ -61,7 +59,6 @@ function LoginPage() {
     const [emailHistory, setEmailHistory] = useState([]);
 
     useEffect(() => {
-        // Load email history from local storage on component mount
         const storedEmails = JSON.parse(localStorage.getItem('emailHistory')) || [];
         setEmailHistory(storedEmails);
     }, []);
@@ -85,7 +82,7 @@ function LoginPage() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const updatedEmails = [...new Set([username, ...emailHistory])]; // Prevent duplicates
+        const updatedEmails = [...new Set([username, ...emailHistory])];
         localStorage.setItem('emailHistory', JSON.stringify(updatedEmails));
         setEmailHistory(updatedEmails);
         if (!validateForm()) {
@@ -105,7 +102,7 @@ function LoginPage() {
 
             if (response.ok && data.accessToken) {
                 setToken(data.accessToken);
-                navigate('/profile'); // Use navigate instead of window.location.href
+                navigate('/profile');
             } else {
                 if (response.status === 401) {
                     alert('Incorrect email or password');
@@ -115,7 +112,7 @@ function LoginPage() {
             }
         } catch (error) {
             console.error('Error during login:', error);
-            setErrors({ unexpectedError: 'Incorrect Email or Password, Please verify and retry.' }); // Set the error message
+            setErrors({ unexpectedError: 'Incorrect Email or Password, Please verify and retry.' });
         }
     };
 
@@ -124,10 +121,10 @@ function LoginPage() {
 
 
     return (
-        <div className="login-page-container"   style={{ paddingtop:'300px'}}> {/* Wrapper div for background */}
+        <div className="login-page-container"   style={{ paddingtop:'300px'}}>
             <form onSubmit={handleSubmit} className="login-form">
-                <h1>Логин</h1> {/* Added styled title */}
-                {errors.unexpectedError && <div className="error">{errors.unexpectedError}</div>} {/* Render the error message */}
+                <h1>Логин</h1>
+                {errors.unexpectedError && <div className="error">{errors.unexpectedError}</div>}
 
                 <div className="form-group">
                     <label>Электронная почта:</label>

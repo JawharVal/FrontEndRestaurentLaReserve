@@ -63,7 +63,7 @@ function EditRestaurant() {
             setRestaurantData(prevState => ({
                 ...prevState,
                 locationName: value,
-                locationId: selectedLocation ? selectedLocation.locationId : null // Assuming `locationId` is what you need
+                locationId: selectedLocation ? selectedLocation.locationId : null
             }));
         } else {
             setRestaurantData(prevState => ({ ...prevState, [name]: value }));
@@ -141,7 +141,7 @@ function EditRestaurant() {
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
     return (

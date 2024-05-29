@@ -45,7 +45,7 @@ function AddRestaurant() {
             setRestaurantData(prevState => ({
                 ...prevState,
                 locationName: value,
-                locationId: selectedLocation ? selectedLocation.locationId : null  // make sure to use 'locationId'
+                locationId: selectedLocation ? selectedLocation.locationId : null
             }));
         } else {
             setRestaurantData(prevState => ({ ...prevState, [name]: value }));
@@ -76,7 +76,7 @@ function AddRestaurant() {
         try {
             const response = await axios.post('/restaurants', {
                 ...restaurantData,
-                locationId: restaurantData.locationId // Ensure this matches the backend expected key
+                locationId: restaurantData.locationId
             });
             console.log('Server response:', response);
             alert('Restaurant added successfully');

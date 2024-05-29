@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import './Spinner.css';  // Ensure this path is correct based on your project structure
+import './Spinner.css';
 
 const LoadingScreen = ({ show }) => {
     const [style, setStyle] = useState({
@@ -13,9 +13,9 @@ const LoadingScreen = ({ show }) => {
         opacity: 0,
         visibility: 'hidden',
         zIndex: 1000,
-        display: 'flex',  // Ensure the spinner is centered
-        justifyContent: 'center',  // Center horizontally
-        alignItems: 'center'  // Center vertically
+        display: 'flex',
+        justifyContent: 'center',
+        alignItems: 'center'
     });
 
     useEffect(() => {
@@ -30,13 +30,12 @@ const LoadingScreen = ({ show }) => {
                 ...prevStyle,
                 opacity: 0
             }));
-            // Delay the 'visibility' change until after the fade-out completes
             const timer = setTimeout(() => {
                 setStyle(prevStyle => ({
                     ...prevStyle,
                     visibility: 'hidden'
                 }));
-            }, 500); // Matches the transition duration
+            }, 500);
             return () => clearTimeout(timer);
         }
     }, [show]);

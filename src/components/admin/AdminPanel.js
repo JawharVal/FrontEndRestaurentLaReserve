@@ -80,7 +80,7 @@ function AdminPanel() {
     };
 
     const fetchSubscribers = () => {
-        axios.get('/subscribe') // Make sure the endpoint matches your server's route
+        axios.get('/subscribe')
             .then(response => {
                 setSubscribers(response.data);
             })
@@ -137,7 +137,7 @@ function AdminPanel() {
             axios.delete(`/reviews/${reviewId}`)
                 .then(() => {
                     alert('Review deleted successfully');
-                    const updatedReviews = reviews.filter(review => review.id !== reviewId); // Ensure filtering is working
+                    const updatedReviews = reviews.filter(review => review.id !== reviewId);
                     setReviews(updatedReviews); // Update the state to reflect the deletion
                 })
                 .catch(error => {
@@ -245,7 +245,7 @@ function AdminPanel() {
     };
 
     const navigateToEditRestaurant = (restaurantId) => {
-        navigate(`/edit-restaurant/${restaurantId}`);  // Assuming you have a route set up for editing a restaurant
+        navigate(`/edit-restaurant/${restaurantId}`);
     };
     const fetchCategories = () => {
         axios.get('/admin/categories')
@@ -254,11 +254,11 @@ function AdminPanel() {
     };
 
     const navigateToAddLocation = () => {
-        navigate('/add-location'); // Make sure the route is set up in your Router
+        navigate('/add-location');
     };
 
     const navigateToEditLocation = (locationId) => {
-        navigate(`/edit-location/${locationId}`); // Make sure the route is set up in your Router
+        navigate(`/edit-location/${locationId}`);
     };
 
     const deleteLocation = (locationId) => {
@@ -313,7 +313,7 @@ function AdminPanel() {
     };
 
     const navigateToEditCategory = (categoryId) => {
-        navigate(`/edit-category/${categoryId}`);  // Assuming you have a route set up for editing a category
+        navigate(`/edit-category/${categoryId}`);
     };
 
     const navigateToAddMenuItem = () => {
@@ -321,13 +321,13 @@ function AdminPanel() {
     };
 
     const navigateToEditMenuItem = (menuItemId) => {
-        navigate(`/edit-menu-item/${menuItemId}`);  // Assuming you have a route set up for editing a menu item
+        navigate(`/edit-menu-item/${menuItemId}`);
     };
     const navigateToAddUser = () => {
         navigate('/add-user');  // Navigate to Add User component
     };
     const navigateToEditUser = (userId) => {
-        navigate(`/edit-user/${userId}`);  // Assuming you have a route set up for editing a user
+        navigate(`/edit-user/${userId}`);
     };
     const styles = {
         button: {
@@ -383,7 +383,7 @@ function AdminPanel() {
                     const newApprovedReviews = [...approvedReviews, approvedReview];
                     setApprovedReviews(newApprovedReviews);
                     alert('Review approved successfully');
-                    // Optionally, filter out the review from the main list if it should no longer show there
+
                     const newReviews = reviews.filter(r => r.id !== reviewId);
                     setReviews(newReviews);
                 } else {
@@ -537,7 +537,5 @@ function AdminPanel() {
         </div>
     );
 }
-
-// Define each table component similarly to how UsersTable is defined, but tailored to the data and operations of each type.
 
 export default AdminPanel;

@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import './About.css'; // Ensure this file contains the required styles
+import './About.css';
 import { NavLink } from 'react-router-dom';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-svg-icons';
-import aboutg from '../../assets/images/about/aboutt.png'; // Adjust the path if necessary
+import aboutg from '../../assets/images/about/aboutt.png';
 
 function SocialIcons() {
     return (
@@ -28,7 +28,7 @@ const About = () => {
         // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
         // Header resize on scroll
         const handleScroll = () => {

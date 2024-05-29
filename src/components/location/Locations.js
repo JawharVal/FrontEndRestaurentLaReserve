@@ -15,7 +15,7 @@ import './Locations.css';
 import { NavLink } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-svg-icons';
-import markerIcon from '../../assets/images/location/marker.ico';  // Ensure this path is correct
+import markerIcon from '../../assets/images/location/marker.ico';
 
 function SocialIcons() {
     return (
@@ -36,12 +36,10 @@ function SocialIcons() {
 const Locations = () => {
 
     useEffect(() => {
-        // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
-        // Header resize on scroll
         const handleScroll = () => {
             const header = document.querySelector('header');
             if (header) {
@@ -57,7 +55,7 @@ const Locations = () => {
         };
     }, []);
     useEffect(() => {
-        document.getElementById('map').innerHTML = ""; // Clear previous map instances if any
+        document.getElementById('map').innerHTML = "";
 
         const map = new Map({
             target: 'map',
@@ -78,11 +76,11 @@ const Locations = () => {
 
         const iconStyle = new Style({
             image: new Icon({
-                anchor: [0.5, 1], // This should be adjusted according to the actual icon image's tip position
+                anchor: [0.5, 1],
                 anchorXUnits: 'fraction',
                 anchorYUnits: 'fraction',
-                src: markerIcon, // Ensure this is correctly imported
-                scale: 0.5 // Optional: Scale the icon if it's too large
+                src: markerIcon,
+                scale: 0.5
             })
         });
 
@@ -101,20 +99,18 @@ const Locations = () => {
     }, []);
 
     const [opacity, setOpacity] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);  // State to control loading
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
-        // Ensure the content is loaded with proper transitions
         setTimeout(() => {
             setOpacity(1);
-            setIsLoading(false);  // Set loading to false after the content is ready
+            setIsLoading(false);
         }, 200);
 
-        // Scroll to top on component mount
         window.scrollTo(0, 0);
 
         return () => {
-            // Clean up if necessary
+
         };
     }, []);
     return (
@@ -122,24 +118,24 @@ const Locations = () => {
             <div style={{ flexGrow: 1 }}>
                 <div id="location-box">
                     <div id="location-info" style={{
-                        backgroundColor: '#fffbf0', // light background for contrast
+                        backgroundColor: '#fffbf0',
                         padding: '20px',
-                        borderRadius: '5px', // rounded corners
-                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)', // soft shadow
-                        maxWidth: '600px', // constrain width for better readability
-                        margin: 'auto', // center in parent
-                        marginTop: '-153px' // space from the top
+                        borderRadius: '5px',
+                        boxShadow: '0 4px 8px rgba(0, 0, 0, 0.1)',
+                        maxWidth: '600px',
+                        margin: 'auto',
+                        marginTop: '-153px'
                     }}>
                         <h1 style={{
-                            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif', // stylish, readable font
+                            fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
                             fontWeight: 'bold',
-                            color: '#333', // darker color for heading
-                            marginBottom: '10px' // space below heading
+                            color: '#333',
+                            marginBottom: '10px'
                         }}>НАШЕ МЕСТОПОЛОЖЕНИЕ:</h1>
                         <p style={{
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
-                            color: '#555', // slightly lighter color for body text
-                            marginBottom: '50px' // space below paragraph
+                            color: '#555',
+                            marginBottom: '50px'
                         }}>C100e, Monastir, Tunisia</p>
                         <h1 style={{
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
@@ -150,7 +146,7 @@ const Locations = () => {
                         <p style={{
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
                             color: '#555',
-                            marginBottom: '30px' // more space before the image
+                            marginBottom: '30px'
                         }}>Понедельник-Воскресенье, 9am-7pm</p>
                         <h1 style={{
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
@@ -161,16 +157,16 @@ const Locations = () => {
                         <p style={{
                             fontFamily: '"Segoe UI", Tahoma, Geneva, Verdana, sans-serif',
                             color: '#555',
-                            marginBottom: '30px' // more space before the image
+                            marginBottom: '30px'
                         }}>+7 (961)  615 42-17</p>
                         <img src="https://restaurant-lareserve-rennes.fr/wp-content/uploads/2019/07/RES-0125-1.jpg" style={{
                             marginLeft: '-10px',
                             marginTop: '20px',
                             maxWidth: '100%',
                             height: 'auto',
-                            border: '5px solid #000000', // maintaining the black border
-                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)', // shadow for the image
-                            borderRadius: '5px' // rounded corners for the image
+                            border: '5px solid #000000',
+                            boxShadow: '0 4px 8px rgba(0, 0, 0, 0.2)',
+                            borderRadius: '5px'
                         }} alt="Specials Image" />
                     </div>
                 </div>

@@ -1,11 +1,11 @@
 import './newsl.css';
 import React, {useEffect, useState} from 'react';
-import emailjs from 'emailjs-com'; // Import emailjs
-import chef from '../../assets/images/newsletter/new.jpg'; // Adjust the path if necessary
+import emailjs from 'emailjs-com';
+import chef from '../../assets/images/newsletter/new.jpg';
 import  backkhoho from '../../assets/images/homepage/backkhoho.png';
 import {NavLink} from "react-router-dom";
 import {FontAwesomeIcon} from "@fortawesome/react-fontawesome";
-import {faFacebookSquare, faInstagram, faVk} from "@fortawesome/free-brands-svg-icons"; // Assuming this is the CSS file path
+import {faFacebookSquare, faInstagram, faVk} from "@fortawesome/free-brands-svg-icons";
 function SocialIcons() {
     return (
         <div>
@@ -24,12 +24,10 @@ function SocialIcons() {
 
 const NewsletterForm = () => {
     useEffect(() => {
-        // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
-        // Header resize on scroll
         const handleScroll = () => {
             const header = document.querySelector('header');
             if (header) {
@@ -72,14 +70,14 @@ const NewsletterForm = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         if (emailError) {
-            return; // Prevent form submission if email is invalid
+            return;
         }
         if (isSubmitting) {
             alert("Пожалуйста, подождите, ваше бронирование обрабатывается.");
             return;
         }
         setIsSubmitting(true);
-        setErrorMessage(''); // Clear any existing error messages at the start of a new submission
+        setErrorMessage('');
         setSuccessMessage('');
         try {
             const response = await fetch('http://localhost:8081/subscribe', {
@@ -118,16 +116,16 @@ const NewsletterForm = () => {
     };
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [opacity, setOpacity] = useState(0);
-    const [isLoading, setIsLoading] = useState(true);  // State to control loading
+    const [isLoading, setIsLoading] = useState(true);
     const buttonStyle = isHovered
         ? {
             backgroundColor: 'black',
-            color: 'desired-hover-text-color', // You may want to replace this with an actual color value like 'white' or 'gold'
+            color: 'desired-hover-text-color',
             marginLeft: '35px',
             paddingRight: '250px',
             paddingLeft: '180px',
             width: '5px',
-            fontSize: '20px'  // Example: Setting font size to 16px
+            fontSize: '20px'
         }
         : {
             backgroundColor: 'white',
@@ -135,21 +133,18 @@ const NewsletterForm = () => {
             paddingRight: '248px',
             paddingLeft: '180px',
             width: '5px',
-            fontSize: '20px', // Ensure consistent font size between styles
+            fontSize: '20px',
             border: '2px solid white'
         };
     useEffect(() => {
-        // Ensure the content is loaded with proper transitions
         setTimeout(() => {
             setOpacity(1);
-            setIsLoading(false);  // Set loading to false after the content is ready
+            setIsLoading(false);
         }, 200);
 
-        // Scroll to top on component mount
         window.scrollTo(0, 0);
 
         return () => {
-            // Clean up if necessary
         };
     }, []);
     return (
@@ -174,7 +169,7 @@ const NewsletterForm = () => {
                 </h77>
 
             </div>
-                {/* Bottom Section with White Background */}
+
             <div style={{
                 height: '50%',
                 backgroundImage: `url(${backkhoho})`,
@@ -202,9 +197,9 @@ const NewsletterForm = () => {
 
                 <img src={chef} alt="Decorative" style={{
                     position: 'absolute',
-                    right: '60%', // Adjust the position as necessary
-                    top: '2.2%', // Adjust so it overlaps both sections correctly
-                    height: '86.5%', // Adjust size as necessary
+                    right: '60%',
+                    top: '2.2%',
+                    height: '86.5%',
                     width: '850px',
                     border: '6px solid white',
                 }} />

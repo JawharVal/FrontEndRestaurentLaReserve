@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useState, useEffect } from 'react';
-import { jwtDecode } from 'jwt-decode';  // Correct the import
+import { jwtDecode } from 'jwt-decode';
 
 const AuthContext = createContext();
 
@@ -19,7 +19,7 @@ export const AuthProvider = ({ children }) => {
             const data = await response.json();
             if (response.ok) {
                 console.log("Token received:", data.token);
-                setToken(data.token); // Assume that the backend correctly returns a JWT
+                setToken(data.token);
             } else {
                 throw new Error(data.message || "Unable to login");
             }
@@ -32,12 +32,12 @@ export const AuthProvider = ({ children }) => {
     const setToken = (token) => {
         localStorage.setItem('token', token);
         const decoded = jwtDecode(token);
-        console.log("Decoded JWT:", decoded); // This should log the decoded token object, check if role is admin
+        console.log("Decoded JWT:", decoded);
 
         setCurrentUser({
             ...currentUser,
             id: decoded.userId,
-            role: decoded.role // Assuming your token decoding results include 'role'
+            role: decoded.role
         });
     };
 
@@ -50,7 +50,7 @@ export const AuthProvider = ({ children }) => {
         const token = localStorage.getItem('token');
         if (token) {
             try {
-                setToken(token); // Automatically decode and set the user on initial load
+                setToken(token);
             } catch (error) {
                 console.error("Error decoding token: ", error);
             }

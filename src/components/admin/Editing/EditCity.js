@@ -126,7 +126,7 @@ function EditCity() {
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
     return (

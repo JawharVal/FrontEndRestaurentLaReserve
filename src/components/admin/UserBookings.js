@@ -107,7 +107,7 @@ function UserBookings() {
                         <th>ID</th>
                         <th>Дата</th>
                         <th>Время</th>
-                        <th>Идентификатор категории</th>  {/* Added Category ID */}
+                        <th>Идентификатор категории</th>
                         <th>Идентификатор ресторана</th>
                         <th>Люди</th>
                         <th>Комментарии</th>
@@ -120,7 +120,7 @@ function UserBookings() {
                             <td>{booking.id}</td>
                             <td>{booking.date}</td>
                             <td>{booking.time}</td>
-                            <td>{booking.categoryId}</td>  {/* Display Category ID */}
+                            <td>{booking.categoryId}</td>
                             <td>{booking.restaurantId}</td>
                             <td>{booking.numberOfPersons}</td>
                             <td>{booking.comment}</td>

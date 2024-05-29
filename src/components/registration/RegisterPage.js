@@ -26,7 +26,7 @@ function RegisterPage() {
         document.body.style.backgroundColor = '#f6bf02';
 
         return () => {
-            document.body.style.backgroundColor = ''; // Reset the background when the component unmounts
+            document.body.style.backgroundColor = '';
         };
     }, []);
     useEffect(() => {
@@ -54,13 +54,13 @@ function RegisterPage() {
         username: '',
         email: '',
         password: '',
-        country: '',  // Ensure this is added
+        country: '',
         city: '',
         region: ''
     });
     const [errors, setErrors] = useState({});
     const [showModal, setShowModal] = useState(false);
-    const navigate = useNavigate(); // use useNavigate here
+    const navigate = useNavigate();
     const [countries, setCountries] = useState([]);
     const [regions, setRegions] = useState([]);
     const [selectedCountry, setSelectedCountry] = useState('');
@@ -68,16 +68,11 @@ function RegisterPage() {
     const [timeoutId, setTimeoutId] = useState(null);
     const [countdown, setCountdown] = useState(3);
 
-
-    // Fetch countries on component mount
-    // ...
-
-// Fetch countries on component mount
     useEffect(() => {
         fetch(`https://secure.geonames.org/countryInfoJSON?username=shrek123`)
             .then((response) => response.json())
             .then((data) => {
-                console.log("Countries:", data.geonames); // Log countries
+                console.log("Countries:", data.geonames);
                 setCountries(data.geonames);
             }).catch((error) => {
             console.error('Error fetching countries:', error);
@@ -99,7 +94,7 @@ function RegisterPage() {
                 country: selectedCountry.countryName,
                 city: '', // Reset city
             }));
-            fetchCities(selectedCountry.countryCode); // Fetch cities for the new country
+            fetchCities(selectedCountry.countryCode);
         } else {
             console.error(`Country '${countryName}' not found`);
             setSelectedCountry('');

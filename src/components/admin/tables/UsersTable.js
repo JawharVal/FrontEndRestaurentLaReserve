@@ -48,7 +48,7 @@ function UsersTable() {
     };
 
     const fetchSubscribers = () => {
-        axios.get('/subscribe') // Make sure the endpoint matches your server's route
+        axios.get('/subscribe')
             .then(response => {
                 setSubscribers(response.data);
             })
@@ -213,7 +213,7 @@ function UsersTable() {
     };
 
     const navigateToEditRestaurant = (restaurantId) => {
-        navigate(`/edit-restaurant/${restaurantId}`);  // Assuming you have a route set up for editing a restaurant
+        navigate(`/edit-restaurant/${restaurantId}`);
     };
     const fetchCategories = () => {
         axios.get('/admin/categories')
@@ -222,11 +222,11 @@ function UsersTable() {
     };
 
     const navigateToAddLocation = () => {
-        navigate('/add-location'); // Make sure the route is set up in your Router
+        navigate('/add-location');
     };
 
     const navigateToEditLocation = (locationId) => {
-        navigate(`/edit-location/${locationId}`); // Make sure the route is set up in your Router
+        navigate(`/edit-location/${locationId}`);
     };
 
     const deleteLocation = (locationId) => {
@@ -281,7 +281,7 @@ function UsersTable() {
     };
 
     const navigateToEditCategory = (categoryId) => {
-        navigate(`/edit-category/${categoryId}`);  // Assuming you have a route set up for editing a category
+        navigate(`/edit-category/${categoryId}`);
     };
 
     const navigateToAddMenuItem = () => {
@@ -289,13 +289,13 @@ function UsersTable() {
     };
 
     const navigateToEditMenuItem = (menuItemId) => {
-        navigate(`/edit-menu-item/${menuItemId}`);  // Assuming you have a route set up for editing a menu item
+        navigate(`/edit-menu-item/${menuItemId}`);
     };
     const navigateToAddUser = () => {
         navigate('/add-user');  // Navigate to Add User component
     };
     const navigateToEditUser = (userId) => {
-        navigate(`/edit-user/${userId}`);  // Assuming you have a route set up for editing a user
+        navigate(`/edit-user/${userId}`);
     };
     const styles = {
         button: {
@@ -351,7 +351,7 @@ function UsersTable() {
                     const newApprovedReviews = [...approvedReviews, approvedReview];
                     setApprovedReviews(newApprovedReviews);
                     alert('Review approved successfully');
-                    // Optionally, filter out the review from the main list if it should no longer show there
+
                     const newReviews = reviews.filter(r => r.id !== reviewId);
                     setReviews(newReviews);
                 } else {

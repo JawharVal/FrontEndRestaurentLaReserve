@@ -31,7 +31,7 @@ function Navigation({ onLogout, onBookingClick }) {
         return () => {
             window.removeEventListener('scroll', handleScroll);
         };
-    }, [currentUser]); // Include currentUser in the dependency array to rebind the event handler when it changes.
+    }, [currentUser]);
 
     return (
         <div className="uk-navbar-container">

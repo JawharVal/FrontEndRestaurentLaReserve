@@ -28,16 +28,14 @@ function ProfilePage() {
         document.body.style.backgroundColor = 'white';
 
         return () => {
-            document.body.style.backgroundColor = ''; // Reset the background when the component unmounts
+            document.body.style.backgroundColor = '';
         };
     }, []);
     useEffect(() => {
-        // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
-        // Header resize on scroll
         const handleScroll = () => {
             const header = document.querySelector('header');
             if (header) {
@@ -59,7 +57,7 @@ function ProfilePage() {
     const auth = useAuth();
     const handleLogout = () => {
         auth.logout();
-        navigate('/login');  // Redirect to login page after logout
+        navigate('/login');
     };
     useEffect(() => {
         fetchUserProfile();
@@ -68,9 +66,8 @@ function ProfilePage() {
     const navigate = useNavigate();
 
     const handleEditBooking = (bookingId) => {
-        navigate(`/edit-booking/${bookingId}`); // Navigate to the edit booking page
+        navigate(`/edit-booking/${bookingId}`);
     };
-
 
     const fetchUserProfile = () => {
         const token = localStorage.getItem('token');
@@ -83,7 +80,6 @@ function ProfilePage() {
         }).then(response => response.json())
             .then(data => {
                 if (data && data.bookings) {
-                    // Sort bookings by date
                     data.bookings.sort((a, b) => new Date(a.date) - new Date(b.date));
                 }
                 setUser(data);
@@ -109,18 +105,18 @@ function ProfilePage() {
         }).then(response => {
             setShowConfirmModal(false);
             if (response.ok) {
-                fetchUserProfile(); // Refresh user data after deletion
+                fetchUserProfile();
             } else {
                 alert('Failed to delete booking');
             }
         });
     };
     const headerStyle = {
-        color: '#333',  // Set the text color
-        textAlign: 'center',  // Center align text
-        fontFamily: 'Arial, sans-serif',  // Specify the font family
-        fontSize: '24px',  // Set font size
-        marginTop: '30px',  // Add top margin
+        color: '#333',
+        textAlign: 'center',
+        fontFamily: 'Arial, sans-serif',
+        fontSize: '24px',
+        marginTop: '30px',
         marginLeft:'20px'
     };
     return (

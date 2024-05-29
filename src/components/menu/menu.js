@@ -22,21 +22,21 @@ function SocialIcons() {
 
 function Menu() {
     const [isAdding, setIsAdding] = useState(false);
-    const location = useLocation();  // Add this to access the location object
+    const location = useLocation();
     const [menuItems, setMenuItems] = useState([]);
     const [categories, setCategories] = useState([]);
     const [selectedCategory, setSelectedCategory] = useState(null);
-    const [sortOrder, setSortOrder] = useState(''); // State to store the sort order
+    const [sortOrder, setSortOrder] = useState('');
     const [activeSection, setActiveSection] = useState(location.state?.section || 'MENU');
-    const [loading, setLoading] = useState(true); // Initially set loading state to true
+    const [loading, setLoading] = useState(true);
     const [mainStyle, setMainStyle] = useState({
         backgroundColor: 'gold',
-        transition: 'background-color 0.5s ease, opacity 0.5s ease' // Add opacity transition
+        transition: 'background-color 0.5s ease, opacity 0.5s ease'
     });
     const navigate = useNavigate();
     const sortMenuItems = (items, order) => {
         if (order === 'asc') {
-            return [...items].sort((a, b) => a.price - b.price); // Spread to avoid mutating the original array
+            return [...items].sort((a, b) => a.price - b.price);
         } else if (order === 'desc') {
             return [...items].sort((a, b) => b.price - a.price);
         }
@@ -44,12 +44,10 @@ function Menu() {
     };
 
     useEffect(() => {
-        // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
-        // Header resize on scroll
         const handleScroll = () => {
             const header = document.querySelector('header');
             if (header) {
@@ -77,7 +75,7 @@ function Menu() {
 
 
     const fetchMenuItems = async (section, categoryId = null) => {
-        setLoading(true); // Set loading to true when fetching menu items
+        setLoading(true);
         try {
             let url = `/api/menuItems/section/${section}`;
             if (categoryId) {
@@ -86,21 +84,20 @@ function Menu() {
             const response = await fetch(url);
             if (!response.ok) throw new Error('Network response was not ok');
             const items = await response.json();
-            const sortedItems = sortMenuItems(items, sortOrder); // Sort the items based on the sort order
+            const sortedItems = sortMenuItems(items, sortOrder);
             setTimeout(() => {
                 setMenuItems(sortedItems);
-                setLoading(false); // Set loading to false after fetching data
-            }, 500); // Match this delay to the CSS transition time to enhance the smoothness
+                setLoading(false);
+            }, 500);
             setMainStyle({
                 ...mainStyle,
                 backgroundColor: section === 'MENU' ? 'rgb(253,216,27)' : 'white',
-            }); // Update the background color based on section
+            });
         } catch (error) {
             console.error('Error:', error);
-            setLoading(false); // Set loading to false if there's an error
+            setLoading(false);
         }
     };
-
 
     useEffect(() => {
         fetchMenuItems(activeSection, selectedCategory);
@@ -108,11 +105,11 @@ function Menu() {
 
 
     const handleSectionChange = (section) => {
-        if (section === activeSection || loading) return; // Avoid re-triggering the same section or during an active transition
+        if (section === activeSection || loading) return;
         setActiveSection(section);
     };
     const handleOrderNow = () => {
-        navigate('/order');  // Assuming '/order' is the route for the order page
+        navigate('/order');
     };
 
 

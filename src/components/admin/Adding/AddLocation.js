@@ -24,7 +24,7 @@ function SocialIcons() {
 function AddLocation() {
     const [locationData, setLocationData] = useState({
         address: '',
-        city: { cityId: '' }, // Changed to cityId to store the ID of the city
+        city: { cityId: '' },
         postalCode: ''
     });
     const [cities, setCities] = useState([]); // State to hold list of cities
@@ -55,10 +55,10 @@ function AddLocation() {
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
-            // The POST request should send the structured data as expected by the backend
+
             await axios.post('/api/locations', {
                 ...locationData,
-                city: { cityId: parseInt(locationData.city.cityId, 10) } // Ensure cityId is sent as a number
+                city: { cityId: parseInt(locationData.city.cityId, 10) }
             });
             alert('Location added successfully');
             navigate('/adminpanel');

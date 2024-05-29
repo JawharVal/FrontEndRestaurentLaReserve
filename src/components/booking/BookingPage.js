@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import reserveImage from '../../assets/images/booking/reserve.jpg';
-import backgg from '../../assets/images/booking/backg.JPG'; // Adjust the path if necessary
+import backgg from '../../assets/images/booking/backg.JPG';
 import "./ReservationForm.css"
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-svg-icons';
@@ -36,7 +36,7 @@ function BookingPage() {
         // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
         // Header resize on scroll
         const handleScroll = () => {
@@ -65,14 +65,14 @@ function BookingPage() {
     const [categories, setCategories] = useState([]);
     const [showTermsError, setShowTermsError] = useState(false);
     const [hover, setHover] = useState(false);
-    const [loading, setLoading] = useState(false); // Add loading state
+    const [loading, setLoading] = useState(false);
     const [availability, setAvailability] = useState({});
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
     const [countdown, setCountdown] = useState(3);
-    const navigate = useNavigate(); // use useNavigate here
+    const navigate = useNavigate();
     const [timeoutId, setTimeoutId] = useState(null);
     const [termsModalVisible, setTermsModalVisible] = useState(false);
     const [agreedToTerms, setAgreedToTerms] = useState(false);
@@ -89,7 +89,7 @@ function BookingPage() {
         };
 
         fetchCategories();
-    }, []); // Empty dependen
+    }, []);
 
     useEffect(() => {
         const fetchRestaurants = async () => {
@@ -174,7 +174,7 @@ paddingTop:'50px',
             margin: '10px 0',
             borderRadius: '4px',
             border: '1px solid #ccc',
-            width: 'calc(100% - 20px)', // subtract padding
+            width: 'calc(100% - 20px)',
         },
         button: {
             padding: '10px 20px',
@@ -219,7 +219,7 @@ paddingTop:'50px',
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
 
@@ -261,7 +261,7 @@ paddingTop:'50px',
                 return currentCountdown - 1;
             });
         }, 1000);
-        setTimeoutId(id);  // Store the interval ID to clear it if needed
+        setTimeoutId(id);
     };
 
     const handleChange = (event) => {
@@ -367,10 +367,6 @@ paddingTop:'50px',
         }
     };
 
-
-
-    // Inside renderTimeOptions function
-    // Inside renderTimeOptions function
     const renderTimeOptions = () => {
         const startHour = 10; // Booking starts at 10 AM
         const endHour = 16; // Last booking at 4 PM
@@ -449,7 +445,6 @@ paddingTop:'50px',
                 <div style={styles.imageSection} />
                 <div style={styles.formSection}>
                     <h77 style={styles.heading}>Бронирование Форма</h77>
-                    {/* The rest of your form goes here, apply styles.input to each input and styles.button to your button */}
                     <form onSubmit={(handleSubmit)} style={{ width: '80%' }}>
                         {['firstName', 'lastName', 'date', 'numberOfPersons', 'comment'].map(field => (
                             <label key={field}>

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useParams, useNavigate } from 'react-router-dom';
 import adming from '../../../assets/images/admins/admin.jpg';
- // Adjust the path if necessary
+
 import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-svg-icons';
 import { NavLink, Navigate } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -33,7 +33,7 @@ function AddBooking() {
         firstName: '',
         lastName: '',
         date: '',
-        time: '10:00', // Initialize with the first available time slot
+        time: '10:00',
         numberOfPersons: 1,
         comment: '',
         categoryId: '',
@@ -75,7 +75,7 @@ function AddBooking() {
     useEffect(() => {
         const fetchRestaurants = async () => {
             try {
-                const response = await axios.get('/restaurants'); // Ensure this endpoint exists
+                const response = await axios.get('/restaurants');
                 setRestaurants(response.data);
             } catch (error) {
                 console.error('Error fetching restaurants:', error);
@@ -183,7 +183,7 @@ function AddBooking() {
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
 
@@ -195,7 +195,7 @@ function AddBooking() {
         }
         setIsSubmitting(true);
 
-        // Add restaurantId to the bookingDetails directly
+
         const updatedBookingDetails = {
             ...bookingDetails,
             restaurantId: selectedRestaurantId,

@@ -47,7 +47,7 @@ function EditHomePage() {
         axios.put(`/api/homePage/${id}`, homePage)
             .then(() => {
                 alert('Home page updated successfully!');
-                navigate('/adminpanel'); // assuming you have an admin dashboard to return to
+                navigate('/adminpanel');
             })
             .catch(error => {
                 alert('Failed to update home page:', error.message);
@@ -57,7 +57,7 @@ function EditHomePage() {
 
     const handleChange = (event) => {
         if (event.target.name === 'imageUrls') {
-            // Assuming imageUrls are submitted as a comma-separated string
+
             setHomePage(prevState => ({
                 ...prevState,
                 imageUrls: event.target.value.split(',').map(url => url.trim()) // Converts string to array when changing
@@ -131,7 +131,7 @@ function EditHomePage() {
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
     return (
@@ -147,7 +147,7 @@ function EditHomePage() {
                     <input
                         type="text"
                         name="imageUrls"
-                        value={homePage.imageUrls.join(', ')}  // Join array into a string for editing
+                        value={homePage.imageUrls.join(', ')}
                         onChange={handleChange}
                     />
                 </label>

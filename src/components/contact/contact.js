@@ -25,7 +25,7 @@ const ContactForm = () => {
         // Fade in effect
         const timer = setTimeout(() => {
             setOpacity(1);
-        }, 200); // Adjust delay as needed
+        }, 200);
 
         // Header resize on scroll
         const handleScroll = () => {
@@ -96,7 +96,7 @@ const ContactForm = () => {
             'Content-Type': 'application/json'
         };
 
-        // Include the Authorization header only if the token exists
+
         if (token) {
             headers['Authorization'] = `Bearer ${token}`;
         }
@@ -133,7 +133,7 @@ const ContactForm = () => {
     const buttonStyle = isHovered
         ? {
             backgroundColor: 'black',
-            color: 'desired-hover-text-color', // You may want to replace this with an actual color value like 'white' or 'gold'
+            color: 'desired-hover-text-color',
 
         }
         : {
@@ -142,7 +142,7 @@ const ContactForm = () => {
             paddingRight: '250px',
             paddingLeft: '190px',
             width: '5px',
-            fontSize: '20px' , // Ensure consistent font size between styles
+            fontSize: '20px' ,
             border: '2px solid white'
         };
 

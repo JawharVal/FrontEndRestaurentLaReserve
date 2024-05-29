@@ -1,12 +1,11 @@
-
-import './Unauthorized.css'; // Import the CSS file you just created
+import './Unauthorized.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { NavLink, Navigate, useNavigate } from "react-router-dom";
-import './Unauthorized.css'; // Make sure your CSS is correctly imported
+import './Unauthorized.css';
 import React, { useEffect, useRef, useState, usenavigate } from 'react';
 import './Unauthorized.css';
 import { faFacebookSquare, faInstagram, faVk } from '@fortawesome/free-brands-svg-icons';
-import ghostImage from '../assets/images/ghost.png'; // Update with the correct path to your image
+import ghostImage from '../assets/images/ghost.png';
 
 function SocialIcons() {
     return (

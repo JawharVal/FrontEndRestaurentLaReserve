@@ -1,11 +1,11 @@
 import React, { useState, useContext } from 'react';
 import StarRatingComponent from 'react-star-rating-component';
 import axios from 'axios';
-import { useAuth } from '../../AuthContext'; // Adjust this path according to your project structure
+import { useAuth } from '../../AuthContext';
 import './ReviewForm.css';
 
 const ReviewForm = () => {
-    const { currentUser } = useAuth(); // Accessing the current user from AuthContext
+    const { currentUser } = useAuth();
     const [ratings, setRatings] = useState({
         food: 0,
         service: 0,
@@ -29,7 +29,7 @@ const ReviewForm = () => {
 
         console.log("Current User:", currentUser);
         const reviewData = {
-            userId: currentUser.id, // Correctly reference the userID from currentUser
+            userId: currentUser.id,
             foodRating: ratings.food,
             serviceRating: ratings.service,
             ambienceRating: ratings.ambience,

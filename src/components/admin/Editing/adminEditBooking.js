@@ -36,7 +36,7 @@ function UserEditBooking() {
     const [errors, setErrors] = useState({});
     const [isSubmitting, setIsSubmitting] = useState(false);
     const [hover, setHover] = useState(false);
-    const [loading, setLoading] = useState(false); // Add loading state
+    const [loading, setLoading] = useState(false);
     const [restaurants, setRestaurants] = useState([]);
     const [showModal, setShowModal] = useState(false);
     const [modalMessage, setModalMessage] = useState('');
@@ -84,7 +84,7 @@ function UserEditBooking() {
 
 
     const fetchCategories = () => {
-        axios.get('/api/categories') // Make sure this endpoint returns all categories
+        axios.get('/api/categories')
             .then(response => {
                 setCategories(response.data);
             })
@@ -195,7 +195,7 @@ function UserEditBooking() {
                     'Authorization': `Bearer ${localStorage.getItem('token')}`
                 }
             });
-            return response.data.exists;  // Assuming the API returns an object with a boolean property 'exists'
+            return response.data.exists;
         } catch (error) {
             console.error('Error checking existing booking:', error);
             alert('Error checking booking availability. Please try again.');
@@ -236,7 +236,7 @@ function UserEditBooking() {
             return;
         }
 
-        // Your existing validation and update logic
+
         let valid = true;
         const newErrors = {};
         Object.keys(bookingData).forEach(key => {
@@ -316,7 +316,7 @@ function UserEditBooking() {
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
 
@@ -347,7 +347,7 @@ function UserEditBooking() {
 
     const imageStyle = {
         width: '50%',
-        height: '500px', // for example, give it a fixed height or min-height
+        height: '500px',
         display: 'flex',
 
         backgroundSize: 'cover',
@@ -356,7 +356,7 @@ function UserEditBooking() {
     };
 
     const formContainerStyle = {
-        width: '50%', // Assuming the form should take the other half
+        width: '50%',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'center',

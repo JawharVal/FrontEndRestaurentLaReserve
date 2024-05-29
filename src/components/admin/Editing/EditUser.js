@@ -57,7 +57,7 @@ function EditUser() {
         axios.put(`/admin/user/${userId}`, user)
             .then(response => {
                 alert('User updated successfully');
-                navigate('/adminpanel');  // Redirect back to the user list or admin panel
+                navigate('/adminpanel');
             })
             .catch(error => {
                 console.error('Failed to update user:', error);

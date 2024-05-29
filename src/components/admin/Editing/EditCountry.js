@@ -31,7 +31,7 @@ function EditCountry() {
         const fetchCountry = async () => {
             try {
                 const response = await axios.get(`/api/countries/${countryId}`);
-                setCountryName(response.data.name); // Assuming the response has a 'name' field
+                setCountryName(response.data.name);
             } catch (error) {
                 console.error('Failed to fetch country:', error);
                 alert('Failed to fetch country details');
@@ -112,7 +112,7 @@ function EditCountry() {
         error: {
             color: 'red',
             fontSize: '0.8rem',
-            height: '20px', // Ensure the layout doesn't jump when errors appear
+            height: '20px',
         }
     };
     return (

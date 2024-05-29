@@ -30,7 +30,7 @@ function LocationsTable() {
         fetchLocations();
         fetchCities();
         fetchCountries();
-        fetchReviews(); // Fetch all reviews
+        fetchReviews();
         fetchApprovedReviews();
         fetchHomePages();
         fetchSubscribers();
@@ -48,7 +48,7 @@ function LocationsTable() {
     };
 
     const fetchSubscribers = () => {
-        axios.get('/subscribe') // Make sure the endpoint matches your server's route
+        axios.get('/subscribe')
             .then(response => {
                 setSubscribers(response.data);
             })
@@ -56,7 +56,7 @@ function LocationsTable() {
     };
     const deleteSubscriber = (email) => {
         if (window.confirm('Are you sure you want to delete this subscriber?')) {
-            axios.delete(`/subscribe/${email}`) // Adjust the endpoint as necessary
+            axios.delete(`/subscribe/${email}`)
                 .then(() => {
                     alert('Subscriber deleted successfully');
                     setSubscribers(subscribers.filter(subscriber => subscriber.email !== email)); // Update the state to reflect the deletion
@@ -94,7 +94,7 @@ function LocationsTable() {
     };
     const [approvedReviews, setApprovedReviews] = useState([]);
     const deleteReview = (reviewId) => {
-        console.log("Attempting to delete review with ID:", reviewId); // This will confirm what ID is being passed
+        console.log("Attempting to delete review with ID:", reviewId);
 
         if (!reviewId) {
             alert('Review ID is undefined, cannot delete.');
@@ -105,7 +105,7 @@ function LocationsTable() {
             axios.delete(`/reviews/${reviewId}`)
                 .then(() => {
                     alert('Review deleted successfully');
-                    const updatedReviews = reviews.filter(review => review.id !== reviewId); // Ensure filtering is working
+                    const updatedReviews = reviews.filter(review => review.id !== reviewId);
                     setReviews(updatedReviews); // Update the state to reflect the deletion
                 })
                 .catch(error => {
@@ -213,7 +213,7 @@ function LocationsTable() {
     };
 
     const navigateToEditRestaurant = (restaurantId) => {
-        navigate(`/edit-restaurant/${restaurantId}`);  // Assuming you have a route set up for editing a restaurant
+        navigate(`/edit-restaurant/${restaurantId}`);
     };
     const fetchCategories = () => {
         axios.get('/admin/categories')
@@ -222,11 +222,11 @@ function LocationsTable() {
     };
 
     const navigateToAddLocation = () => {
-        navigate('/add-location'); // Make sure the route is set up in your Router
+        navigate('/add-location');
     };
 
     const navigateToEditLocation = (locationId) => {
-        navigate(`/edit-location/${locationId}`); // Make sure the route is set up in your Router
+        navigate(`/edit-location/${locationId}`);
     };
 
     const deleteLocation = (locationId) => {
@@ -281,7 +281,7 @@ function LocationsTable() {
     };
 
     const navigateToEditCategory = (categoryId) => {
-        navigate(`/edit-category/${categoryId}`);  // Assuming you have a route set up for editing a category
+        navigate(`/edit-category/${categoryId}`);
     };
 
     const navigateToAddMenuItem = () => {
@@ -289,13 +289,13 @@ function LocationsTable() {
     };
 
     const navigateToEditMenuItem = (menuItemId) => {
-        navigate(`/edit-menu-item/${menuItemId}`);  // Assuming you have a route set up for editing a menu item
+        navigate(`/edit-menu-item/${menuItemId}`);
     };
     const navigateToAddUser = () => {
         navigate('/add-user');  // Navigate to Add User component
     };
     const navigateToEditUser = (userId) => {
-        navigate(`/edit-user/${userId}`);  // Assuming you have a route set up for editing a user
+        navigate(`/edit-user/${userId}`);
     };
     const styles = {
         button: {
@@ -351,7 +351,7 @@ function LocationsTable() {
                     const newApprovedReviews = [...approvedReviews, approvedReview];
                     setApprovedReviews(newApprovedReviews);
                     alert('Review approved successfully');
-                    // Optionally, filter out the review from the main list if it should no longer show there
+
                     const newReviews = reviews.filter(r => r.id !== reviewId);
                     setReviews(newReviews);
                 } else {

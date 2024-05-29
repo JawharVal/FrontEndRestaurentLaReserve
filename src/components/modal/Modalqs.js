@@ -5,13 +5,11 @@ import './LoginModal.css';
 function Modalqs({ show, onClose }) {
     const navigate = useNavigate();
 
-    // Redirect to login and close modal
     const handleLoginRedirect = () => {
         navigate('/login');
         onClose();
     };
 
-    // Handle click on backdrop to close modal
     const handleBackdropClick = (event) => {
         if (event.target.id === "modal-backdrop") {
             onClose();

@@ -4,12 +4,14 @@ import { AuthProvider, useAuth } from './AuthContext';
 import Navigation from './components/navigation/Navigation';
 import Hoho from './components/homepage/hoho';
 import Menu from './components/menu/menu';
+import axios from 'axios';
+import NotFound from './components/NotFound';
 import LoadingScreen from './components/LoadingScreen';
 import ContactForm from './components/contact/contact';
 import NewsletterForm from './components/newsletter/newsl';
 import Locations from './components/location/Locations';
 import About from './components/about/About';
-import EditHomePage from './components/admin/Editing/EditHomePage'; // Make sure the path matches where your component is located
+import EditHomePage from './components/admin/Editing/EditHomePage';
 import AddHomePage from './components/admin/Adding/AddHomePage'
 import LoginPage from './components/login/LoginPage';
 import RegisterPage from './components/registration/RegisterPage';
@@ -47,15 +49,30 @@ function App() {
     const [showLoginModal, setShowLoginModal] = useState(false);
     const auth = useAuth();
 
-    const navigate = useNavigate();  // Ensure navigate is declared correctly
+    const navigate = useNavigate();
     const location = useLocation();
     useScrollToTop();
-    const userRole = auth.userRole; // Assume this is how you access the role
+    const userRole = auth.userRole;
     const handleLogout = () => {
         auth.logout();
-        navigate('/login');  // Redirect to login page after logout
+        navigate('/login');
     };
+    useEffect(() => {
 
+        axios.interceptors.request.use(
+            config => {
+                const token = localStorage.getItem('token');
+                if (token) {
+                    config.headers['Authorization'] = `Bearer ${token}`;
+                }
+                return config;
+            },
+            error => {
+                return Promise.reject(error);
+            }
+        );
+
+    }, []);
     useEffect(() => {
         setIsLoading(true);
         setContentVisible(false);
@@ -69,7 +86,6 @@ function App() {
 
 
     const handleBookingClick = () => {
-        // Ensure user is directed to the booking page or handled properly
         navigate('/booking');
     };
     useEffect(() => {
@@ -80,9 +96,6 @@ function App() {
             navigate('/login');
         }
     }, [auth.currentUser, location.pathname, navigate]);
-
-    // Properly formatted dependency array
-
 
     return (
         <>
@@ -131,7 +144,7 @@ function App() {
                     <Route path="/add-country" element={auth.currentUser && auth.currentUser.role === 'admin' ? <AddCountry /> : <Navigate to="/unauthorized" />} />
                     <Route path="/edit-country/:countryId" element={auth.currentUser && auth.currentUser.role === 'admin' ? <EditCountry /> : <Navigate to="/unauthorized" />} />
                     <Route path="/edit-home-page/:id" element={auth.currentUser && auth.currentUser.role === 'admin' ? <EditHomePage /> : <Navigate to="/unauthorized" />} />
-
+                    <Route path="*" element={<NotFound />} />
                 </Routes>
                 <footer style={{
                     backgroundColor: 'black',
@@ -142,7 +155,6 @@ function App() {
                     alignItems: 'center',
                     height: '80px'
                 }}>
-                    {/* Footer content */}
                 </footer>
             </div>
         </>
@@ -155,14 +167,13 @@ function NavigationLoader({ setIsLoading, setContentVisible }) {
         setIsLoading(true);
         setContentVisible(false);
 
-        // Check if the current path is '/menus'
         let timeoutDuration;
         if (location.pathname === '/menus') {
-            timeoutDuration = 1000;  // Longer loading for menus
+            timeoutDuration = 1000;
         } else if (location.pathname === '/register') {
-            timeoutDuration = 1500;  // Longer loading for register
+            timeoutDuration = 1500;
         } else {
-            timeoutDuration = 1000;   // Default loading time for other pages
+            timeoutDuration = 1000;
         }
         const timer = setTimeout(() => {
             setIsLoading(false);
@@ -172,7 +183,7 @@ function NavigationLoader({ setIsLoading, setContentVisible }) {
         return () => clearTimeout(timer);
     }, [location, setIsLoading, setContentVisible]);
 
-    return null; // This component does not render anything
+    return null;
 }
 function RootComponent() {
     return (
